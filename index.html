@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Riley Huskey Advertising & PR Student</title>
+  <title>Riley Huskey | Advertising & PR</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <style>
     * {
       margin: 0;
@@ -42,14 +44,9 @@
       animation: fadeSlideUp 1s forwards;
     }
 
-    section:nth-child(2) {
-      animation-delay: 0.5s;
-    }
-    section:nth-child(3) {
-      animation-delay: 1s;
-    }
+    section:nth-child(2) { animation-delay: 0.5s; }
+    section:nth-child(3) { animation-delay: 1s; }
 
-    /* HEADER */
     header {
       background-color: #ffffff;
       padding: 100px 20px 80px;
@@ -87,7 +84,6 @@
       position: relative;
     }
 
-    /* ABOUT */
     #about {
       background-color: #fff;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -106,7 +102,6 @@
       transform: scale(1.1) rotate(2deg);
     }
 
-    /* PROJECTS */
     #projects {
       background-color: #fce4ec;
     }
@@ -120,7 +115,7 @@
 
     .project-card {
       width: 300px;
-      min-height: 440px;
+      min-height: 460px;
       background: white;
       border-radius: 15px;
       padding: 20px;
@@ -134,15 +129,9 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .project-card:nth-child(1) {
-      animation-delay: 0.3s;
-    }
-    .project-card:nth-child(2) {
-      animation-delay: 0.5s;
-    }
-    .project-card:nth-child(3) {
-      animation-delay: 0.7s;
-    }
+    .project-card:nth-child(1) { animation-delay: 0.3s; }
+    .project-card:nth-child(2) { animation-delay: 0.5s; }
+    .project-card:nth-child(3) { animation-delay: 0.7s; }
 
     .project-card:hover {
       transform: translateY(-10px) scale(1.02);
@@ -168,7 +157,6 @@
       flex-grow: 1;
     }
 
-    /* FOOTER */
     footer {
       background-color: #333;
       color: white;
@@ -187,7 +175,6 @@
       color: #e91e63;
     }
 
-    /* ANIMATIONS */
     @keyframes fadeSlideUp {
       to {
         opacity: 1;
@@ -215,7 +202,6 @@
       }
     }
 
-    /* RESPONSIVE */
     @media (max-width: 768px) {
       .projects-container {
         flex-direction: column;
@@ -228,49 +214,59 @@
   </style>
 </head>
 <body>
-
-  <!-- HEADER -->
   <header>
-    <h1>Riley Huskey Advertising & PR</h1>
+    <h1><span id="typed"></span></h1>
     <p>Strategic Branding • Graphic Design • Public Relations</p>
   </header>
 
-  <!-- ABOUT -->
   <section id="about">
     <h2>About Me</h2>
     <img src="riley-huskey.jpg" alt="Riley Huskey">
-    <p>I am a multidisciplinary student specializing in strategic branding, graphic design, and public relations. I create compelling visuals and cohesive stories that connect brands with their audiences across all platforms.</p>
+    <p>I’m a creative communicator focused on brand storytelling, digital presence, and PR strategy. With every project, I aim to bring clarity, emotion, and intention to visual communication.</p>
   </section>
 
-  <!-- PROJECTS -->
   <section id="projects">
     <h2>My Work</h2>
     <div class="projects-container">
-      <div class="project-card">
+      <div class="project-card" data-tilt>
         <img src="project1.jpg">
         <h3>BenchRacers</h3>
-        <p>Created stuff.</p>
+        <p>Brand concept and campaign identity for a Gen Z media launch.</p>
       </div>
-      <div class="project-card">
+      <div class="project-card" data-tilt>
         <img src="project2.jpg">
-        <h3>Example</h3>
-        <p>Created more stuff.</p>
+        <h3>Visual Suite</h3>
+        <p>Developed a cohesive brand system: logo, palette, and social kit.</p>
       </div>
-      <div class="project-card">
+      <div class="project-card" data-tilt>
         <img src="project3.jpg">
-        <h3>Me When</h3>
-        <p>Something about design project I did.</p>
+        <h3>"Me When" Design</h3>
+        <p>Art direction and social visuals for a humor-focused campaign.</p>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <p>Connect with me!</p>
     <a href="https://github.com/rileyhuskey" target="_blank">GitHub</a>
-    <a href="www.linkedin.com/in/riley-huskey-651591295" target="_blank">LinkedIn</a>
-    <a href="mailto:huskeyriley@yahoocom">Email</a>
+    <a href="https://www.linkedin.com/in/riley-huskey-651591295" target="_blank">LinkedIn</a>
+    <a href="mailto:huskeyriley@yahoo.com">Email</a>
   </footer>
 
+  <script>
+    VanillaTilt.init(document.querySelectorAll(".project-card"), {
+      max: 15,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.2
+    });
+
+    new Typed("#typed", {
+      strings: ["Riley Huskey", "Advertising & PR Student", "Creative Brand Strategist"],
+      typeSpeed: 70,
+      backSpeed: 40,
+      loop: true
+    });
+  </script>
 </body>
 </html>
