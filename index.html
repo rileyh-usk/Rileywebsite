@@ -3,105 +3,91 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Riley Huskey — Pink-forward creative brand strategist. Branding, design, PR." />
-  <meta name="theme-color" content="#140614" />
-  <title>Riley Huskey | Portfolio</title>
+  <meta name="description" content="Riley Huskey — pink-forward portfolio. Branding, design, PR." />
+  <meta name="theme-color" content="#ffd3e8" />
+  <title>Riley Huskey | Pink Portfolio</title>
 
+  <!-- Fonts: bubbly + clean -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg0:#07030a;
-      --bg1:#120518;
-      --panel: rgba(255,255,255,.07);
-      --panel2: rgba(255,255,255,.10);
-      --border: rgba(255,255,255,.16);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.70);
-      --muted2: rgba(255,255,255,.55);
+      /* VIBE COLORS */
+      --bg: #ffd3e8;
+      --bg2:#ffe7f3;
+      --panel:#fff7fb;
+      --panel2:#ffffff;
+      --ink:#2b1a25;
+      --muted:#6a3f55;
 
-      /* girly + pink-forward */
-      --pink: #ff2fb4;
-      --pink2:#ff5bd6;
-      --pink3:#ff8fe6;
-      --rose:#ff2d55;
-      --lilac:#d8b4fe;
+      --pink:#ff4fb8;
+      --pink2:#ff7bd3;
+      --pink3:#ffb7e8;
+      --lav:#d9b8ff;
 
-      --shadow: 0 20px 70px rgba(0,0,0,.55);
-      --shadow2: 0 12px 32px rgba(0,0,0,.35);
-      --r-xl: 28px;
-      --r-lg: 22px;
-      --r-md: 14px;
+      /* “Sticker” look */
+      --stroke:#ffffff;
+      --stroke2: rgba(255,255,255,.7);
+      --shadow: 0 18px 40px rgba(118, 36, 79, .18);
+      --shadow2: 0 10px 20px rgba(118, 36, 79, .12);
 
-      --maxw: 1080px;
+      --radiusXL: 34px;
+      --radiusLG: 26px;
+      --radiusMD: 18px;
+
+      --maxw: 1120px;
       --ease: cubic-bezier(.2,.9,.2,1);
     }
 
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; }
-    html{ scroll-behavior:smooth; }
+    *{ box-sizing: border-box; }
+    html{ scroll-behavior: smooth; }
     body{
       margin:0;
-      color:var(--text);
-      font-family: Manrope, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      overflow-x:hidden;
+      font-family: "DM Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--ink);
       background:
-        radial-gradient(1200px 800px at 20% 10%, rgba(255,47,180,.28), transparent 55%),
-        radial-gradient(1100px 700px at 85% 0%, rgba(255,91,214,.22), transparent 55%),
-        radial-gradient(900px 900px at 70% 95%, rgba(216,180,254,.14), transparent 55%),
-        linear-gradient(180deg, #05010a 0%, #0a0310 50%, #04010a 100%);
+        radial-gradient(900px 600px at 15% 8%, rgba(255,255,255,.35), transparent 55%),
+        radial-gradient(1000px 700px at 85% 10%, rgba(255,255,255,.28), transparent 58%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 55%, var(--bg) 110%);
+      overflow-x:hidden;
     }
-    a{ color:inherit; text-decoration:none; }
+    a{ color: inherit; text-decoration:none; }
     img{ max-width:100%; display:block; }
 
-    /* Sparkle noise */
-    .noise{
+    /* Soft sparkle overlay */
+    .sparkleLayer{
       pointer-events:none;
       position:fixed; inset:0;
       z-index:1;
-      opacity:.055;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
-      mix-blend-mode: overlay;
-      animation: noiseShift 10s linear infinite;
+      opacity:.55;
+      mix-blend-mode: soft-light;
+      background-image:
+        radial-gradient(circle at 12% 18%, rgba(255,255,255,.55) 0 2px, transparent 3px),
+        radial-gradient(circle at 78% 22%, rgba(255,255,255,.55) 0 2px, transparent 3px),
+        radial-gradient(circle at 35% 72%, rgba(255,255,255,.45) 0 2px, transparent 3px),
+        radial-gradient(circle at 62% 82%, rgba(255,255,255,.45) 0 2px, transparent 3px);
+      animation: sparkleFloat 8s var(--ease) infinite alternate;
     }
-    @keyframes noiseShift{
-      0%{ transform:translate3d(0,0,0); }
-      25%{ transform:translate3d(-2%, 1%, 0); }
-      50%{ transform:translate3d(1%, -2%, 0); }
-      75%{ transform:translate3d(2%, 2%, 0); }
-      100%{ transform:translate3d(0,0,0); }
-    }
-
-    /* Cursor glow (pink) */
-    .cursorGlow{
-      position:fixed;
-      width:520px; height:520px;
-      border-radius:50%;
-      pointer-events:none;
-      background: radial-gradient(circle at center, rgba(255,47,180,.16), rgba(255,91,214,.11), transparent 60%);
-      filter: blur(18px);
-      transform: translate(-50%,-50%);
-      z-index:1;
-      opacity:0;
-      transition: opacity .25s var(--ease);
+    @keyframes sparkleFloat{
+      from{ transform: translate3d(0,0,0); }
+      to{ transform: translate3d(0,-10px,0); }
     }
 
-    /* Layout */
     .wrap{
       position:relative;
       z-index:2;
-      width:min(var(--maxw), calc(100% - 44px));
+      width:min(var(--maxw), calc(100% - 40px));
       margin:0 auto;
     }
 
-    /* Sticky universal nav (travels as you scroll) */
+    /* ===== Sticky Universal Nav ===== */
     .nav{
       position:sticky;
-      top:12px;
+      top:14px;
       z-index:50;
-      margin-top:14px;
+      margin-top:16px;
     }
     .navInner{
       display:flex;
@@ -109,11 +95,11 @@
       justify-content:space-between;
       gap:10px;
       padding:10px 12px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.07);
-      backdrop-filter: blur(16px);
+      border-radius: 999px;
+      background: rgba(255,255,255,.70);
+      border: 2px solid rgba(255,255,255,.85);
       box-shadow: var(--shadow2);
+      backdrop-filter: blur(10px);
     }
     .brand{
       display:flex;
@@ -123,232 +109,309 @@
       border-radius:999px;
       min-width: 190px;
     }
-    .mark{
-      width:40px; height:40px;
-      border-radius:16px;
+    .logoDot{
+      width:44px; height:44px;
+      border-radius: 18px;
       background:
-        radial-gradient(circle at 30% 30%, rgba(255,47,180,.98), rgba(255,91,214,.78));
-      box-shadow: 0 14px 34px rgba(255,47,180,.22);
+        radial-gradient(circle at 30% 30%, var(--pink) 0%, var(--pink2) 55%, var(--lav) 120%);
+      box-shadow: 0 16px 26px rgba(255,79,184,.25);
+      border:2px solid rgba(255,255,255,.85);
       position:relative;
       overflow:hidden;
     }
-    .mark:after{
+    .logoDot:after{
       content:"";
       position:absolute;
       inset:-40%;
-      background:
-        conic-gradient(from 200deg, rgba(255,255,255,0), rgba(255,255,255,.40), rgba(255,255,255,0));
-      animation: sheen 3.6s linear infinite;
+      background: conic-gradient(from 180deg, rgba(255,255,255,0), rgba(255,255,255,.7), rgba(255,255,255,0));
+      animation: sheen 3.4s linear infinite;
     }
-    @keyframes sheen{ to{ transform:rotate(360deg); } }
+    @keyframes sheen{ to{ transform: rotate(360deg); } }
 
     .brandText strong{
-      font-family:"Space Grotesk", Manrope, sans-serif;
-      letter-spacing:-.02em;
-      font-size:14px;
-      line-height:1.1;
+      font-family:"Fredoka", system-ui, sans-serif;
+      font-size: 16px;
+      letter-spacing: -.01em;
+      line-height:1.05;
       display:block;
     }
     .brandText span{
+      display:block;
+      margin-top:2px;
       font-size:12px;
       color: var(--muted);
-      font-weight:800;
-      line-height:1.1;
+      font-weight:700;
     }
 
     .navLinks{
       display:flex;
-      gap:6px;
+      gap:8px;
       align-items:center;
-      justify-content:flex-end;
       flex-wrap:wrap;
+      justify-content:flex-end;
     }
     .chip{
-      padding:10px 12px;
-      border-radius:999px;
-      border:1px solid transparent;
-      color: var(--muted);
-      font-weight:900;
+      font-family:"Fredoka", system-ui, sans-serif;
+      font-weight:700;
       font-size:13px;
-      transition: transform .18s var(--ease), background .18s var(--ease), border-color .18s var(--ease), color .18s var(--ease);
-      position:relative;
+      padding:10px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.65);
+      border: 2px solid rgba(255,255,255,.85);
+      box-shadow: 0 8px 16px rgba(118,36,79,.08);
+      transition: transform .15s var(--ease), filter .15s var(--ease);
+      color: #3b1f2f;
     }
-    .chip:hover{
-      transform: translateY(-1px);
-      background: rgba(255,255,255,.08);
-      border-color: rgba(255,255,255,.16);
-      color: rgba(255,255,255,.90);
-    }
+    .chip:hover{ transform: translateY(-1px); filter: brightness(1.02); }
     .chip.active{
-      color: rgba(255,255,255,.94);
-      border-color: rgba(255,255,255,.20);
-      background: linear-gradient(135deg, rgba(255,47,180,.80), rgba(255,91,214,.50));
-      box-shadow: 0 12px 28px rgba(255,47,180,.14);
+      background: linear-gradient(135deg, rgba(255,79,184,.25), rgba(255,183,232,.55));
+      border-color: rgba(255,255,255,.95);
     }
 
-    /* Hero */
-    header.hero{ padding: 82px 0 22px; }
+    .navCTA{
+      font-family:"Fredoka", system-ui, sans-serif;
+      font-weight:700;
+      font-size:13px;
+      padding:10px 14px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--pink), var(--pink2));
+      border: 2px solid rgba(255,255,255,.92);
+      color: #fff;
+      box-shadow: 0 14px 26px rgba(255,79,184,.22);
+      transition: transform .15s var(--ease), filter .15s var(--ease);
+      white-space:nowrap;
+    }
+    .navCTA:hover{ transform: translateY(-1px); filter: brightness(1.02); }
+
+    @media (max-width: 720px){
+      .navLinks{ display:none; }
+    }
+
+    /* ===== Hero ===== */
+    header.hero{
+      padding: 76px 0 22px;
+    }
+    .heroCard{
+      position:relative;
+      border-radius: var(--radiusXL);
+      background: linear-gradient(180deg, rgba(255,255,255,.70), rgba(255,255,255,.55));
+      border: 3px solid rgba(255,255,255,.95);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      padding: 26px;
+    }
     .heroGrid{
       display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 22px;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 20px;
       align-items:center;
+      position:relative;
+      z-index:2;
     }
-
     .kicker{
       display:inline-flex;
       align-items:center;
-      gap:10px;
-      padding:10px 12px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
+      gap:8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.7);
+      border: 2px solid rgba(255,255,255,.92);
+      font-weight:700;
       color: var(--muted);
-      font-weight:900;
-      font-size:13px;
-      width:fit-content;
+      width: fit-content;
+      box-shadow: 0 10px 18px rgba(118,36,79,.08);
     }
-    .dot{
-      width:9px; height:9px; border-radius:999px;
-      background: radial-gradient(circle at 30% 30%, rgba(255,47,180,1), rgba(255,91,214,.85));
-      box-shadow: 0 0 0 6px rgba(255,47,180,.12);
+    .kDot{
+      width:10px; height:10px; border-radius:999px;
+      background: radial-gradient(circle at 30% 30%, var(--pink), var(--pink2));
+      box-shadow: 0 0 0 6px rgba(255,79,184,.12);
     }
 
-    h1{
+    .heroTitle{
       margin: 14px 0 10px;
-      font-family:"Space Grotesk", Manrope, sans-serif;
-      font-size: clamp(36px, 5vw, 60px);
-      letter-spacing:-.04em;
-      line-height:1.02;
+      font-family:"Fredoka", system-ui, sans-serif;
+      font-size: clamp(42px, 5.2vw, 72px);
+      line-height: .98;
+      letter-spacing: -.02em;
+      text-shadow: 0 6px 0 rgba(255,255,255,.9);
     }
-    .subtitle{
+    .heroTitle .accent{
+      background: linear-gradient(90deg, var(--pink), var(--pink2));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color: transparent;
+    }
+
+    .heroSub{
       margin: 10px 0 16px;
-      color: var(--muted);
       font-size: 16px;
-      max-width: 62ch;
+      color: rgba(43,26,37,.78);
+      max-width: 60ch;
+      line-height: 1.55;
+      font-weight:500;
     }
 
     .heroActions{
       display:flex;
-      gap:10px;
+      gap: 10px;
       flex-wrap:wrap;
       align-items:center;
-      margin: 12px 0 10px;
+      margin-top: 10px;
     }
     .btn{
+      font-family:"Fredoka", system-ui, sans-serif;
+      font-weight:700;
+      font-size:14px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 2px solid rgba(255,255,255,.95);
+      box-shadow: 0 10px 18px rgba(118,36,79,.10);
+      transition: transform .15s var(--ease), filter .15s var(--ease);
       display:inline-flex;
       align-items:center;
       gap:10px;
-      padding:12px 14px;
-      border-radius: 16px;
-      border:1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.07);
-      backdrop-filter: blur(14px);
-      color: rgba(255,255,255,.90);
-      font-weight:1000;
-      font-size:13px;
-      transition: transform .18s var(--ease), background .18s var(--ease), border-color .18s var(--ease), filter .18s var(--ease);
     }
-    .btn:hover{ transform:translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.22); }
+    .btn:hover{ transform: translateY(-1px); filter: brightness(1.01); }
     .btn.primary{
-      background: linear-gradient(135deg, rgba(255,47,180,.95), rgba(255,91,214,.62));
-      box-shadow: 0 18px 44px rgba(255,47,180,.16);
+      background: linear-gradient(135deg, var(--pink), var(--pink2));
+      color: #fff;
+    }
+    .btn.soft{
+      background: rgba(255,255,255,.72);
+      color: #3b1f2f;
     }
 
-    .heroMedia{
+    /* Hero image = “polaroid” */
+    .polaroid{
       position:relative;
-      border-radius: var(--r-xl);
+      border-radius: var(--radiusLG);
+      background: rgba(255,255,255,.9);
+      border: 3px solid rgba(255,255,255,.96);
+      box-shadow: 0 18px 30px rgba(118,36,79,.16);
+      padding: 14px 14px 18px;
+      transform: rotate(1.1deg);
+    }
+    .polaroid .imgWrap{
+      border-radius: 22px;
       overflow:hidden;
-      border:1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.05);
-      box-shadow: var(--shadow);
-      min-height: 400px;
+      border: 2px solid rgba(255,255,255,.95);
+      background: rgba(255,255,255,.8);
     }
-    .heroMedia img{
-      position:absolute; inset:0;
-      width:100%; height:100%;
-      object-fit:cover;
-      opacity:.87;
-      filter:saturate(1.08) contrast(1.04);
-      transform: scale(1.03);
+    .polaroid img{
+      width:100%;
+      height: 360px;
+      object-fit: cover;
+      display:block;
     }
-    .mediaOverlay{
-      position:absolute; inset:0;
-      background: linear-gradient(180deg, rgba(7,3,10,.10), rgba(7,3,10,.80));
-      z-index:1;
-    }
-    .floatingCard{
-      position:absolute;
-      left:16px; bottom:16px;
-      z-index:2;
-      padding:14px 14px 12px;
-      border-radius: 20px;
-      border:1px solid rgba(255,255,255,.18);
-      background: rgba(14, 6, 18, 0.62);
-      backdrop-filter: blur(16px);
-      box-shadow: var(--shadow2);
-      max-width: 320px;
-    }
-    .floatingCard .title{
-      font-weight:1000;
-      letter-spacing:-.02em;
-      margin-bottom:6px;
-      font-family:"Space Grotesk", Manrope, sans-serif;
-    }
-    .floatingCard p{ margin:0; color: var(--muted); font-size:13px; line-height:1.35; }
-    .badgeRow{ display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
-    .badge{
-      font-size:12px;
-      font-weight:1000;
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      color: rgba(255,255,255,.90);
+    .polaroid .caption{
+      margin-top:10px;
+      font-family:"Fredoka", system-ui, sans-serif;
+      font-weight:700;
+      color: rgba(43,26,37,.75);
+      font-size: 13px;
+      text-align:center;
     }
 
-    /* Sections */
+    /* Sticker elements */
+    .sticker{
+      position:absolute;
+      z-index:3;
+      border-radius: 999px;
+      border: 2px solid rgba(255,255,255,.95);
+      background: rgba(255,255,255,.75);
+      box-shadow: 0 16px 26px rgba(118,36,79,.12);
+      padding: 10px 12px;
+      font-family:"Fredoka", system-ui, sans-serif;
+      font-weight:700;
+      color: rgba(43,26,37,.8);
+      display:flex;
+      align-items:center;
+      gap:8px;
+      user-select:none;
+    }
+    .sticker.heart{
+      right: 18px;
+      top: 16px;
+      transform: rotate(10deg);
+    }
+    .sticker.spark{
+      left: 18px;
+      bottom: 16px;
+      transform: rotate(-8deg);
+    }
+    .emoji{
+      width: 18px; height: 18px;
+      display:inline-grid;
+      place-items:center;
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(255,79,184,.22), rgba(255,183,232,.55));
+      border:1px solid rgba(255,255,255,.85);
+    }
+
+    /* Decorative wave at bottom of hero card */
+    .heroWave{
+      position:absolute;
+      inset:auto 0 -1px 0;
+      height: 86px;
+      z-index:1;
+      opacity: .95;
+    }
+
+    @media (max-width: 980px){
+      .heroGrid{ grid-template-columns: 1fr; }
+      .polaroid img{ height: 320px; }
+    }
+
+    /* ===== Sections ===== */
     section{ padding: 26px 0; }
+
     .sectionHead{
       display:flex;
       align-items:flex-end;
       justify-content:space-between;
-      gap:14px;
-      margin-bottom: 12px;
+      gap: 12px;
+      margin: 0 0 12px;
     }
     .sectionHead h2{
       margin:0;
-      font-family:"Space Grotesk", Manrope, sans-serif;
-      font-size: 22px;
-      letter-spacing:-.02em;
+      font-family:"Fredoka", system-ui, sans-serif;
+      font-size: 26px;
+      letter-spacing: -.01em;
     }
     .sectionHead p{
       margin:0;
-      color: var(--muted);
+      color: rgba(43,26,37,.70);
+      font-weight:600;
       font-size: 13px;
-      max-width: 56ch;
+      max-width: 58ch;
       text-align:right;
     }
-    .panel{
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05);
-      backdrop-filter: blur(14px);
-      border-radius: var(--r-xl);
-      box-shadow: var(--shadow2);
+    @media (max-width: 720px){
+      .sectionHead{ flex-direction:column; align-items:flex-start; }
+      .sectionHead p{ text-align:left; }
     }
 
-    /* About */
-    #about .aboutGrid{
-      padding: 16px;
+    .panel{
+      border-radius: var(--radiusXL);
+      background: rgba(255,255,255,.70);
+      border: 3px solid rgba(255,255,255,.95);
+      box-shadow: var(--shadow2);
+      overflow:hidden;
+    }
+
+    /* About: simple, girly, readable */
+    .aboutGrid{
+      padding: 18px;
       display:grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap: 12px;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 14px;
     }
     .aboutCard{
+      border-radius: var(--radiusLG);
+      background: rgba(255,255,255,.82);
+      border: 2px solid rgba(255,255,255,.95);
+      box-shadow: 0 16px 26px rgba(118,36,79,.10);
       padding: 16px;
-      border-radius: 22px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
       position:relative;
       overflow:hidden;
     }
@@ -357,449 +420,556 @@
       position:absolute;
       inset:-40%;
       background:
-        radial-gradient(circle at 30% 30%, rgba(255,47,180,.26), transparent 55%),
-        radial-gradient(circle at 75% 25%, rgba(255,91,214,.18), transparent 55%);
-      transform: rotate(10deg);
+        radial-gradient(circle at 20% 20%, rgba(255,79,184,.25), transparent 55%),
+        radial-gradient(circle at 70% 35%, rgba(255,183,232,.35), transparent 55%),
+        radial-gradient(circle at 80% 80%, rgba(217,184,255,.18), transparent 60%);
+      transform: rotate(12deg);
     }
     .aboutInner{ position:relative; z-index:1; }
-    .avatarRow{ display:flex; gap: 14px; align-items:center; }
+
+    .avatarRow{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+    }
     .avatar{
-      width: 72px; height:72px;
-      border-radius: 22px;
-      border:1px solid rgba(255,255,255,.16);
+      width: 84px; height:84px;
+      border-radius: 28px;
       overflow:hidden;
-      box-shadow: 0 16px 44px rgba(0,0,0,.35);
-      background: rgba(255,255,255,.04);
+      border: 2px solid rgba(255,255,255,.95);
+      box-shadow: 0 18px 26px rgba(118,36,79,.14);
+      background: rgba(255,255,255,.9);
     }
     .avatar img{ width:100%; height:100%; object-fit:cover; }
     .who h3{
       margin:0;
-      font-family:"Space Grotesk", Manrope, sans-serif;
+      font-family:"Fredoka", system-ui, sans-serif;
       font-size: 18px;
-      letter-spacing:-.02em;
     }
     .who span{
       display:inline-block;
       margin-top:6px;
-      color: var(--muted);
+      color: rgba(43,26,37,.70);
+      font-weight:700;
       font-size: 13px;
-      font-weight:900;
     }
     .aboutCopy{
-      margin-top: 12px;
-      color: rgba(255,255,255,.84);
+      margin: 12px 0 0;
+      line-height: 1.6;
+      color: rgba(43,26,37,.78);
+      font-weight:500;
       font-size: 14px;
-      line-height:1.6;
     }
-    .miniList{
-      padding: 16px;
-      border-radius: 22px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-    }
-    .miniList h4{
-      margin:0 0 10px;
-      font-family:"Space Grotesk", Manrope, sans-serif;
-      letter-spacing:-.02em;
-    }
-    .miniList ul{
-      margin:0; padding-left: 16px;
-      color: rgba(255,255,255,.82);
-      font-size: 13px;
-      line-height:1.55;
-    }
-    .miniList li{ margin: 6px 0; color: var(--muted); font-weight:800; }
 
-    /* Work */
-    .projectsGrid{
+    .aboutList{
+      border-radius: var(--radiusLG);
+      background: rgba(255,255,255,.82);
+      border: 2px solid rgba(255,255,255,.95);
+      box-shadow: 0 16px 26px rgba(118,36,79,.10);
+      padding: 16px;
+    }
+    .aboutList h4{
+      margin:0 0 10px;
+      font-family:"Fredoka", system-ui, sans-serif;
+      font-size: 16px;
+    }
+    .aboutList ul{
+      margin:0;
+      padding-left: 18px;
+      color: rgba(43,26,37,.76);
+      font-weight:600;
+      line-height: 1.6;
+      font-size: 13px;
+    }
+    .aboutList li{ margin: 6px 0; }
+
+    @media (max-width: 980px){
+      .aboutGrid{ grid-template-columns: 1fr; }
+    }
+
+    /* Work: “cute cards” */
+    .workGrid{
+      padding: 18px;
       display:grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      padding: 14px;
+      gap: 14px;
     }
-    .projectCard{
-      border-radius: 22px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
+    .workCard{
+      border-radius: var(--radiusLG);
+      background: rgba(255,255,255,.86);
+      border: 2px solid rgba(255,255,255,.98);
+      box-shadow: 0 16px 26px rgba(118,36,79,.12);
       overflow:hidden;
+      transition: transform .18s var(--ease), filter .18s var(--ease);
       cursor:pointer;
-      transition: transform .18s var(--ease), background .18s var(--ease), border-color .18s var(--ease);
-      min-height: 320px;
       display:grid;
-      grid-template-rows: 1fr auto;
+      grid-template-rows: 190px auto;
     }
-    .projectCard:hover{
-      transform: translateY(-3px);
-      background: rgba(255,255,255,.055);
-      border-color: rgba(255,255,255,.18);
-    }
-    .projectMedia{
+    .workCard:hover{ transform: translateY(-4px); filter: brightness(1.01); }
+
+    .workMedia{
       position:relative;
       overflow:hidden;
-      border-bottom:1px solid rgba(255,255,255,.10);
+      background: linear-gradient(135deg, rgba(255,79,184,.18), rgba(255,183,232,.45));
     }
-    .projectMedia img{
+    .workMedia img{
       width:100%; height:100%;
-      object-fit:cover;
-      transform: scale(1.05);
-      transition: transform .65s var(--ease), filter .65s var(--ease);
-      filter: saturate(1.15) contrast(1.06);
+      object-fit: cover;
+      transform: scale(1.03);
+      transition: transform .6s var(--ease);
     }
-    .projectCard:hover .projectMedia img{ transform: scale(1.12); filter:saturate(1.28) contrast(1.08); }
-    .projectMeta{
-      padding: 14px 14px 12px;
-      display:grid;
-      gap: 8px;
-    }
-    .projectMeta h3{
-      margin:0;
-      font-family:"Space Grotesk", Manrope, sans-serif;
-      font-size: 16px;
-      letter-spacing:-.02em;
-    }
-    .projectMeta p{
-      margin:0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height:1.45;
-    }
-    .tagRow{ display:flex; flex-wrap:wrap; gap:8px; margin-top: 2px; }
-    .tag{
-      padding: 7px 9px;
-      border-radius: 999px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      font-size: 12px;
-      font-weight:1000;
-      color: rgba(255,255,255,.90);
-    }
+    .workCard:hover .workMedia img{ transform: scale(1.10); }
 
-    /* Contact (simple) */
-    .contactSimple{
-      padding: 14px;
+    .workBody{ padding: 14px 14px 16px; }
+    .workBody h3{
+      margin:0 0 6px;
+      font-family:"Fredoka", system-ui, sans-serif;
+      font-size: 16px;
+    }
+    .workBody p{
+      margin:0;
+      color: rgba(43,26,37,.72);
+      font-weight:600;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    .tags{
       display:flex;
       flex-wrap:wrap;
-      gap: 10px;
+      gap:8px;
+      margin-top: 10px;
+    }
+    .tag{
+      font-family:"Fredoka", system-ui, sans-serif;
+      font-weight:700;
+      font-size: 12px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(255,79,184,.16), rgba(255,183,232,.42));
+      border: 2px solid rgba(255,255,255,.95);
+      color: rgba(43,26,37,.78);
+    }
+
+    @media (max-width: 980px){
+      .workGrid{ grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px){
+      .workGrid{ grid-template-columns: 1fr; }
+    }
+
+    /* Contact: super simple pills */
+    .contactRow{
+      padding: 18px;
+      display:flex;
+      gap: 12px;
+      flex-wrap:wrap;
       align-items:center;
       justify-content:space-between;
     }
     .contactPill{
+      flex: 1 1 300px;
       display:flex;
-      gap:10px;
       align-items:center;
-      padding: 12px 14px;
+      justify-content:space-between;
+      gap: 12px;
+      padding: 14px 16px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.06);
-      font-weight: 1000;
-      color: rgba(255,255,255,.92);
-      transition: transform .18s var(--ease), background .18s var(--ease), border-color .18s var(--ease);
+      background: rgba(255,255,255,.84);
+      border: 2px solid rgba(255,255,255,.98);
+      box-shadow: 0 16px 26px rgba(118,36,79,.10);
+      font-weight:700;
+      color: rgba(43,26,37,.78);
+      transition: transform .15s var(--ease);
     }
-    .contactPill:hover{
-      transform: translateY(-1px);
-      background: rgba(255,255,255,.08);
-      border-color: rgba(255,255,255,.22);
-    }
+    .contactPill:hover{ transform: translateY(-2px); }
     .contactPill small{
       display:block;
-      font-weight:900;
-      color: var(--muted);
+      font-weight:700;
+      color: rgba(43,26,37,.62);
       font-size: 12px;
-      letter-spacing:.02em;
+      margin-bottom: 2px;
     }
     .contactPill span{
       display:block;
-      font-size: 13px;
+      font-family:"Fredoka", system-ui, sans-serif;
+      font-weight:700;
+      color: rgba(43,26,37,.85);
+      font-size: 14px;
+      letter-spacing: .01em;
+    }
+    .copyHint{
+      font-size: 12px;
+      color: rgba(43,26,37,.55);
+      font-weight:700;
+      white-space:nowrap;
     }
 
     footer{
-      padding: 34px 0 44px;
-      color: var(--muted2);
-      font-size: 12px;
+      padding: 28px 0 44px;
       text-align:center;
+      color: rgba(43,26,37,.58);
+      font-weight:700;
+      font-size: 12px;
     }
 
-    /* Reveal */
-    .reveal{
-      opacity:0;
-      transform: translateY(10px);
-      transition: opacity .7s var(--ease), transform .7s var(--ease);
+    /* Modal (optional, still cute) */
+    dialog#modal{
+      width:min(920px, calc(100% - 26px));
+      border:none;
+      border-radius: var(--radiusXL);
+      padding:0;
+      background: rgba(255,255,255,.92);
+      box-shadow: 0 28px 80px rgba(118,36,79,.30);
+      overflow:hidden;
     }
-    .reveal.show{ opacity:1; transform: translateY(0); }
-
-    @media (prefers-reduced-motion: reduce){
-      *{ animation:none !important; transition:none !important; scroll-behavior:auto !important; }
-      .cursorGlow{ display:none; }
+    dialog::backdrop{
+      background: rgba(43,26,37,.25);
+      backdrop-filter: blur(6px);
     }
-
-    @media (max-width: 980px){
-      .heroGrid{ grid-template-columns: 1fr; }
-      .heroMedia{ min-height: 360px; }
-      #about .aboutGrid{ grid-template-columns: 1fr; }
-      .projectsGrid{ grid-template-columns: 1fr 1fr; }
-      .contactSimple{ justify-content:flex-start; }
+    .mHead{
+      padding: 14px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      border-bottom: 2px solid rgba(255,79,184,.18);
+      background: linear-gradient(90deg, rgba(255,79,184,.10), rgba(255,183,232,.18));
     }
-    @media (max-width: 640px){
-      .navLinks{ display:none; }
-      .projectsGrid{ grid-template-columns: 1fr; }
-      .sectionHead{ flex-direction:column; align-items:flex-start; }
-      .sectionHead p{ text-align:left; }
+    .mHead h3{
+      margin:0;
+      font-family:"Fredoka", system-ui, sans-serif;
+      font-size: 16px;
+    }
+    .mClose{
+      font-family:"Fredoka", system-ui, sans-serif;
+      font-weight:700;
+      border-radius: 999px;
+      padding: 10px 12px;
+      border: 2px solid rgba(255,255,255,.98);
+      background: rgba(255,255,255,.86);
+      box-shadow: 0 10px 18px rgba(118,36,79,.12);
+      cursor:pointer;
+    }
+    .mBody{
+      padding: 16px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .mImg{
+      border-radius: var(--radiusLG);
+      overflow:hidden;
+      border: 2px solid rgba(255,255,255,.98);
+      box-shadow: 0 16px 26px rgba(118,36,79,.10);
+      height: 360px;
+      background: linear-gradient(135deg, rgba(255,79,184,.14), rgba(255,183,232,.38));
+    }
+    .mImg img{ width:100%; height:100%; object-fit:cover; }
+    .mInfo{
+      border-radius: var(--radiusLG);
+      background: rgba(255,255,255,.86);
+      border: 2px solid rgba(255,255,255,.98);
+      box-shadow: 0 16px 26px rgba(118,36,79,.10);
+      padding: 14px;
+      color: rgba(43,26,37,.78);
+      font-weight:600;
+      line-height: 1.6;
+      font-size: 13px;
+    }
+    @media (max-width: 860px){
+      .mBody{ grid-template-columns: 1fr; }
+      .mImg{ height: 280px; }
     }
   </style>
 </head>
 
 <body>
-  <div class="noise"></div>
-  <div class="cursorGlow" id="cursorGlow" aria-hidden="true"></div>
+  <div class="sparkleLayer" aria-hidden="true"></div>
 
   <div class="wrap">
-    <!-- STICKY UNIVERSAL NAV -->
+    <!-- Sticky universal nav -->
     <div class="nav">
       <div class="navInner">
         <a class="brand" href="#top" aria-label="Go to top">
-          <div class="mark" aria-hidden="true"></div>
+          <div class="logoDot" aria-hidden="true"></div>
           <div class="brandText">
             <strong>Riley Huskey</strong>
-            <span>Brand Strategy • Design • PR</span>
+            <span>Branding • Design • PR</span>
           </div>
         </a>
 
-        <nav class="navLinks" aria-label="Primary navigation">
+        <nav class="navLinks" aria-label="Primary">
           <a class="chip" href="#about" data-nav="about">About</a>
-          <a class="chip" href="#projects" data-nav="projects">Work</a>
+          <a class="chip" href="#work" data-nav="work">Work</a>
           <a class="chip" href="#contact" data-nav="contact">Contact</a>
         </nav>
 
-        <a class="btn primary" href="#projects" style="border-radius:999px; padding:10px 14px;">View work</a>
+        <a class="navCTA" href="#work">See work</a>
       </div>
     </div>
 
     <!-- HERO -->
     <header id="top" class="hero">
-      <div class="heroGrid">
-        <div>
-          <div class="kicker reveal">
-            <div class="dot" aria-hidden="true"></div>
-            <span>Pink-forward creative • Available for internships</span>
-          </div>
+      <div class="heroCard">
+        <div class="sticker heart"><span class="emoji">♡</span> pink energy</div>
+        <div class="sticker spark"><span class="emoji">✦</span> high-end + cute</div>
 
-          <h1 class="reveal"><span id="typed"></span></h1>
+        <div class="heroGrid">
+          <div>
+            <div class="kicker">
+              <span class="kDot" aria-hidden="true"></span>
+              <span>Pink-forward creative • Portfolio</span>
+            </div>
 
-          <p class="subtitle reveal">
-            I build brand systems and campaign visuals that feel premium, feminine, and instantly recognizable — with clean PR-ready messaging.
-          </p>
+            <h1 class="heroTitle">
+              Ready to <span class="accent">hire</span> a brand girl?
+            </h1>
 
-          <div class="heroActions reveal">
-            <a class="btn primary" href="#projects">See my work</a>
-            <a class="btn" href="#contact">Contact</a>
-            <a class="btn" href="https://www.linkedin.com/in/riley-huskey-651591295" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          </div>
-        </div>
+            <p class="heroSub">
+              I build brand systems, campaign visuals, and PR messaging that feel feminine, polished, and instantly recognizable.
+              Clean hierarchy. Cute details. Serious execution.
+            </p>
 
-        <div class="heroMedia reveal" aria-label="Hero image">
-          <img src="images/header-photo.jpg" alt="Header Visual" />
-          <div class="mediaOverlay" aria-hidden="true"></div>
-          <div class="floatingCard">
-            <div class="title">My vibe</div>
-            <p>Girly, glossy, and high-end—without being messy. Strong hierarchy. Clean systems.</p>
-            <div class="badgeRow">
-              <span class="badge">Branding</span>
-              <span class="badge">Campaign</span>
-              <span class="badge">PR</span>
+            <div class="heroActions">
+              <a class="btn primary" href="#work">View my work</a>
+              <a class="btn soft" href="#contact">Contact me</a>
+              <a class="btn soft" href="https://www.linkedin.com/in/riley-huskey-651591295" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>
           </div>
+
+          <!-- Swap this image to your hero image -->
+          <div class="polaroid" aria-label="Hero image">
+            <div class="imgWrap">
+              <img src="images/header-photo.jpg" alt="Hero portrait / brand visual">
+            </div>
+            <div class="caption">“Designed to be remembered.”</div>
+          </div>
         </div>
+
+        <!-- Wavy bottom like your reference vibe -->
+        <svg class="heroWave" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0,80 C120,120 240,40 360,80 C480,120 600,40 720,80 C840,120 960,40 1080,80 C1200,120 1320,40 1440,80 L1440,160 L0,160 Z"
+                fill="rgba(255,183,232,.95)"></path>
+          <path d="M0,95 C120,135 240,55 360,95 C480,135 600,55 720,95 C840,135 960,55 1080,95 C1200,135 1320,55 1440,95 L1440,160 L0,160 Z"
+                fill="rgba(255,255,255,.70)"></path>
+        </svg>
       </div>
     </header>
 
-    <main id="main">
-      <!-- ABOUT -->
-      <section id="about" class="reveal">
-        <div class="sectionHead">
-          <h2>About</h2>
-          <p>Simple and easy to read.</p>
-        </div>
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="sectionHead">
+        <h2>About</h2>
+        <p>Simple, readable, and cute. No clutter.</p>
+      </div>
 
-        <div class="panel">
-          <div class="aboutGrid">
-            <div class="aboutCard">
-              <div class="aboutInner">
-                <div class="avatarRow">
-                  <div class="avatar">
-                    <img src="riley-huskey.jpg" alt="Riley Huskey" />
-                  </div>
-                  <div class="who">
-                    <h3>Riley Huskey</h3>
-                    <span>Advertising & PR Student</span>
-                  </div>
+      <div class="panel">
+        <div class="aboutGrid">
+          <div class="aboutCard">
+            <div class="aboutInner">
+              <div class="avatarRow">
+                <!-- Swap to your headshot -->
+                <div class="avatar">
+                  <img src="riley-huskey.jpg" alt="Riley Huskey">
                 </div>
-
-                <p class="aboutCopy">
-                  I’m a creative communicator focused on brand storytelling, digital presence, and PR strategy.
-                  I bring clarity to the message and a signature pink-forward visual system to the design.
-                </p>
+                <div class="who">
+                  <h3>Riley Huskey</h3>
+                  <span>Advertising & PR Student</span>
+                </div>
               </div>
-            </div>
 
-            <div class="miniList">
-              <h4>What I do best</h4>
-              <ul>
-                <li>Brand systems (identity + templates)</li>
-                <li>Campaign visuals built for scroll + clarity</li>
-                <li>PR messaging that sounds human</li>
-                <li>Consistent look across every channel</li>
-              </ul>
+              <p class="aboutCopy">
+                I’m a creative communicator focused on brand storytelling, digital presence, and PR strategy.
+                I love building “full looks” for brands — the type, the palette, the voice, and the scroll-stopping visuals.
+              </p>
             </div>
           </div>
-        </div>
-      </section>
 
-      <!-- WORK -->
-      <section id="projects" class="reveal">
-        <div class="sectionHead">
-          <h2>Work</h2>
-          <p>Swap images + text with your real projects.</p>
-        </div>
-
-        <div class="panel">
-          <div class="projectsGrid">
-            <article class="projectCard">
-              <div class="projectMedia">
-                <img src="project1.jpg" alt="BenchRacers preview">
-              </div>
-              <div class="projectMeta">
-                <h3>BenchRacers</h3>
-                <p>Brand concept and campaign identity for a Gen Z media launch.</p>
-                <div class="tagRow">
-                  <span class="tag">Branding</span>
-                  <span class="tag">Campaign</span>
-                  <span class="tag">Social</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="projectCard">
-              <div class="projectMedia">
-                <img src="project2.jpg" alt="Visual Suite preview">
-              </div>
-              <div class="projectMeta">
-                <h3>Visual Suite</h3>
-                <p>Cohesive brand system: logo, palette, typography, and templates.</p>
-                <div class="tagRow">
-                  <span class="tag">Identity</span>
-                  <span class="tag">Templates</span>
-                  <span class="tag">Design</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="projectCard">
-              <div class="projectMedia">
-                <img src="project3.jpg" alt="Me When Design preview">
-              </div>
-              <div class="projectMeta">
-                <h3>"Me When" Design</h3>
-                <p>Art direction and social visuals for a humor-focused campaign.</p>
-                <div class="tagRow">
-                  <span class="tag">Campaign</span>
-                  <span class="tag">Social</span>
-                </div>
-              </div>
-            </article>
+          <div class="aboutList">
+            <h4>What I do best</h4>
+            <ul>
+              <li>Brand identity + systems (logo, type, palette, templates)</li>
+              <li>Campaign visuals built for clarity + attention</li>
+              <li>PR-ready messaging that sounds human</li>
+              <li>Consistency across every channel</li>
+            </ul>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- CONTACT (simple: email + phone only) -->
-      <section id="contact" class="reveal">
-        <div class="sectionHead">
-          <h2>Contact</h2>
-          <p>Tap to copy or click to email/call.</p>
+    <!-- WORK -->
+    <section id="work">
+      <div class="sectionHead">
+        <h2>Work</h2>
+        <p>Click a project for quick details.</p>
+      </div>
+
+      <div class="panel">
+        <div class="workGrid">
+          <!-- Project 1 -->
+          <article class="workCard"
+            data-title="BenchRacers"
+            data-img="project1.jpg"
+            data-desc="Brand concept + campaign identity for a Gen Z media launch. Built a cohesive pink-forward system for social + promo graphics."
+          >
+            <div class="workMedia"><img src="project1.jpg" alt="BenchRacers preview"></div>
+            <div class="workBody">
+              <h3>BenchRacers</h3>
+              <p>Brand concept + campaign identity for a Gen Z media launch.</p>
+              <div class="tags">
+                <span class="tag">Branding</span><span class="tag">Campaign</span><span class="tag">Social</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="workCard"
+            data-title="Visual Suite"
+            data-img="project2.jpg"
+            data-desc="Cohesive brand system: logo, palette, typography rules, and templates. Designed for speed + consistency."
+          >
+            <div class="workMedia"><img src="project2.jpg" alt="Visual Suite preview"></div>
+            <div class="workBody">
+              <h3>Visual Suite</h3>
+              <p>Logo + palette + type + templates for consistency.</p>
+              <div class="tags">
+                <span class="tag">Identity</span><span class="tag">Templates</span><span class="tag">Design</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="workCard"
+            data-title="“Me When” Design"
+            data-img="project3.jpg"
+            data-desc="Art direction and social visuals for a humor-focused campaign. Punchline-first layout + consistent styling."
+          >
+            <div class="workMedia"><img src="project3.jpg" alt="Me When Design preview"></div>
+            <div class="workBody">
+              <h3>“Me When” Design</h3>
+              <p>Art direction + social visuals for a humor campaign.</p>
+              <div class="tags">
+                <span class="tag">Art Direction</span><span class="tag">Social</span>
+              </div>
+            </div>
+          </article>
         </div>
+      </div>
+    </section>
 
-        <div class="panel">
-          <div class="contactSimple">
-            <a class="contactPill" href="mailto:huskey.riley@yahoo.com" aria-label="Email Riley">
-              <div>
-                <small>Email</small>
-                <span>huskey.riley@yahoo.com</span>
-              </div>
-            </a>
+    <!-- CONTACT (simple: only email + phone) -->
+    <section id="contact">
+      <div class="sectionHead">
+        <h2>Contact</h2>
+        <p>One tap to email or call.</p>
+      </div>
 
-            <a class="contactPill" href="tel:+13145603141" aria-label="Call Riley">
-              <div>
-                <small>Phone</small>
-                <span>(314)-560-3141</span>
-              </div>
-            </a>
+      <div class="panel">
+        <div class="contactRow">
+          <a class="contactPill" href="mailto:huskey.riley@yahoo.com" id="emailPill" aria-label="Email Riley">
+            <div>
+              <small>Email</small>
+              <span>huskey.riley@yahoo.com</span>
+            </div>
+            <div class="copyHint" data-copy="huskey.riley@yahoo.com">Copy</div>
+          </a>
 
-            <a class="contactPill" href="https://www.linkedin.com/in/riley-huskey-651591295" target="_blank" rel="noopener noreferrer" aria-label="Open LinkedIn">
-              <div>
-                <small>LinkedIn</small>
-                <span>Open profile</span>
-              </div>
-            </a>
-          </div>
+          <a class="contactPill" href="tel:+13145603141" id="phonePill" aria-label="Call Riley">
+            <div>
+              <small>Phone</small>
+              <span>(314)-560-3141</span>
+            </div>
+            <div class="copyHint" data-copy="(314)-560-3141">Copy</div>
+          </a>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <footer>
-        © <span id="year"></span> Riley Huskey
-      </footer>
-    </main>
+    <footer>
+      © <span id="year"></span> Riley Huskey
+    </footer>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <script>
-    const $ = (s, root=document) => root.querySelector(s);
-    const $$ = (s, root=document) => Array.from(root.querySelectorAll(s));
+  <!-- Cute quick modal for work cards -->
+  <dialog id="modal" aria-label="Project details">
+    <div class="mHead">
+      <h3 id="mTitle">Project</h3>
+      <button class="mClose" id="mClose" aria-label="Close">Close</button>
+    </div>
+    <div class="mBody">
+      <div class="mImg"><img id="mImg" src="" alt="Project image"></div>
+      <div class="mInfo" id="mDesc"></div>
+    </div>
+  </dialog>
 
-    // year
+  <script>
+    const $ = (s, r=document) => r.querySelector(s);
+    const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+
+    // Year
     $("#year").textContent = new Date().getFullYear();
 
-    // cursor glow
-    const glow = $("#cursorGlow");
-    let glowOn = false;
-    window.addEventListener("mousemove", (e) => {
-      if (!glowOn) { glow.style.opacity = 1; glowOn = true; }
-      glow.style.left = e.clientX + "px";
-      glow.style.top  = e.clientY + "px";
-    }, { passive: true });
-    window.addEventListener("mouseleave", () => { glow.style.opacity = 0; glowOn = false; });
-
-    // reveal
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(en => { if (en.isIntersecting) en.target.classList.add("show"); });
-    }, { threshold: 0.12 });
-    $$(".reveal").forEach(el => io.observe(el));
-
-    // typed
-    if (window.Typed) {
-      new Typed("#typed", {
-        strings: ["Riley Huskey", "Pink-Forward Creative", "Advertising & PR Student"],
-        typeSpeed: 56,
-        backSpeed: 32,
-        backDelay: 900,
-        smartBackspace: true,
-        loop: true
-      });
-    } else {
-      $("#typed").textContent = "Riley Huskey";
-    }
-
-    // nav active highlight (universal nav)
+    // Sticky nav "active" highlight
     const navLinks = $$("[data-nav]");
-    const sections = ["about","projects","contact"].map(id => document.getElementById(id)).filter(Boolean);
+    const ids = navLinks.map(a => a.getAttribute("data-nav"));
+    const sections = ids.map(id => document.getElementById(id === "work" ? "work" : id)).filter(Boolean);
 
     function setActive(id){
       navLinks.forEach(a => a.classList.toggle("active", a.getAttribute("data-nav") === id));
     }
 
     const navIO = new IntersectionObserver((entries) => {
-      entries.forEach(en => { if (en.isIntersecting) setActive(en.target.id); });
+      entries.forEach(en => {
+        if (en.isIntersecting) {
+          const id = en.target.id; // about / work / contact
+          setActive(id);
+        }
+      });
     }, { threshold: 0.55 });
 
-    sections.forEach(sec => navIO.observe(sec));
+    sections.forEach(s => navIO.observe(s));
+
+    // Work modal
+    const modal = $("#modal");
+    const mTitle = $("#mTitle");
+    const mImg = $("#mImg");
+    const mDesc = $("#mDesc");
+
+    $$(".workCard").forEach(card => {
+      card.addEventListener("click", () => {
+        mTitle.textContent = card.dataset.title || "Project";
+        mImg.src = card.dataset.img || "";
+        mImg.alt = (card.dataset.title || "Project") + " image";
+        mDesc.textContent = card.dataset.desc || "";
+        if (modal.showModal) modal.showModal(); else modal.setAttribute("open","");
+      });
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); card.click(); }
+      });
+      card.tabIndex = 0;
+    });
+
+    $("#mClose").addEventListener("click", () => modal.close());
+
+    // Copy to clipboard (click “Copy” area or pill)
+    async function copyText(text, el){
+      try{
+        await navigator.clipboard.writeText(text);
+        const old = el.textContent;
+        el.textContent = "Copied!";
+        setTimeout(() => el.textContent = old, 1100);
+      } catch(e){
+        // fallback: do nothing
+      }
+    }
+
+    $$(".copyHint").forEach(h => {
+      h.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        copyText(h.dataset.copy || "", h);
+      });
+    });
   </script>
 </body>
 </html>
