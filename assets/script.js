@@ -3,9 +3,7 @@ const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
 
 function setActiveNav(){
   const page = document.body.dataset.page; // home | work | contact
-  const map = { home: "index", work: "work", contact: "contact" };
-  const key = map[page] || "index";
-
+  const key = page === "home" ? "index" : page;
   $$("[data-page]").forEach(a => a.classList.toggle("active", a.dataset.page === key));
 }
 
@@ -19,7 +17,7 @@ function wireCopy(){
         const old = h.textContent;
         h.textContent = "Copied!";
         setTimeout(() => h.textContent = old, 1100);
-      } catch(_){}
+      } catch(_) {}
     });
   });
 }
@@ -35,6 +33,7 @@ function wireWorkModal(){
 
   $$(".workCard").forEach(card => {
     card.tabIndex = 0;
+
     const open = () => {
       mTitle.textContent = card.dataset.title || "Project";
       mImg.src = card.dataset.img || "";
@@ -42,6 +41,7 @@ function wireWorkModal(){
       mDesc.textContent = card.dataset.desc || "";
       modal.showModal ? modal.showModal() : modal.setAttribute("open","");
     };
+
     card.addEventListener("click", open);
     card.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }
@@ -49,13 +49,6 @@ function wireWorkModal(){
   });
 
   closeBtn?.addEventListener("click", () => modal.close());
-  modal.addEventListener("click", (e) => {
-    const rect = modal.getBoundingClientRect();
-    const inDialog =
-      rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
-      rect.left <= e.clientX && e.clientX <= rect.left + rect.width;
-    if (!inDialog) modal.close();
-  });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
