@@ -2,306 +2,1725 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Riley Huskey | Advertising & PR</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Riley Huskey — Creative Brand Strategist. Strategic Branding, Graphic Design, Public Relations. Portfolio + case studies." />
+  <meta name="theme-color" content="#0b0f17" />
+
+  <title>Riley Huskey | Creative Brand Strategist</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Riley Huskey | Creative Brand Strategist" />
+  <meta property="og:description" content="Brand storytelling, digital presence, PR strategy. Explore case studies + work." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/header-photo.jpg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9C%A8%3C/text%3E%3C/svg%3E">
+
   <style>
-    * {
+    /* =======================
+       Design System
+    ======================= */
+    :root {
+      --bg: #070a12;
+      --panel: rgba(255, 255, 255, 0.06);
+      --panel-2: rgba(255, 255, 255, 0.08);
+      --border: rgba(255, 255, 255, 0.12);
+      --text: rgba(255, 255, 255, 0.92);
+      --muted: rgba(255, 255, 255, 0.68);
+      --muted-2: rgba(255, 255, 255, 0.52);
+
+      --brandA: #7c3aed; /* violet */
+      --brandB: #06b6d4; /* cyan */
+      --brandC: #22c55e; /* green accent */
+      --danger: #ef4444;
+
+      --shadow: 0 20px 70px rgba(0, 0, 0, 0.55);
+      --shadow2: 0 12px 32px rgba(0, 0, 0, 0.35);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+
+      --maxw: 1120px;
+      --ease: cubic-bezier(.2,.9,.2,1);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
       margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      font-family: Manrope, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: radial-gradient(1200px 800px at 20% 10%, rgba(124,58,237,.22), transparent 55%),
+                  radial-gradient(1100px 700px at 80% 0%, rgba(6,182,212,.20), transparent 55%),
+                  radial-gradient(900px 900px at 70% 90%, rgba(34,197,94,.10), transparent 55%),
+                  linear-gradient(180deg, #050713 0%, #070a12 55%, #04050c 100%);
+      overflow-x: hidden;
+      line-height: 1.4;
     }
 
-    html, body {
-      scroll-behavior: smooth;
-      font-family: 'Roboto', sans-serif;
-      background-color: #f8f8f8;
-      color: #333;
+    /* Subtle animated noise layer */
+    .noise {
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      opacity: 0.055;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='210' height='210'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='210' height='210' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+      mix-blend-mode: overlay;
+      animation: noiseShift 10s linear infinite;
+    }
+    @keyframes noiseShift {
+      0% { transform: translate3d(0,0,0); }
+      25% { transform: translate3d(-2%, 1%, 0); }
+      50% { transform: translate3d(1%, -2%, 0); }
+      75% { transform: translate3d(2%, 2%, 0); }
+      100% { transform: translate3d(0,0,0); }
     }
 
-    h1, h2, h3 {
-      font-family: 'Playfair Display', serif;
-      color: #e91e63;
+    /* Floating gradient blobs */
+    .blob {
+      position: absolute;
+      width: 560px;
+      height: 560px;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.35;
+      z-index: 0;
+      transform: translateZ(0);
+      animation: float 12s var(--ease) infinite;
+    }
+    .blob.a { background: radial-gradient(circle at 30% 30%, rgba(124,58,237,.9), transparent 60%); top: -180px; left: -160px; }
+    .blob.b { background: radial-gradient(circle at 70% 20%, rgba(6,182,212,.85), transparent 60%); top: -220px; right: -220px; animation-delay: -4s; }
+    .blob.c { background: radial-gradient(circle at 30% 60%, rgba(34,197,94,.55), transparent 60%); bottom: -220px; left: 10%; animation-delay: -7s; }
+    @keyframes float {
+      0%, 100% { transform: translate3d(0,0,0) scale(1); }
+      50% { transform: translate3d(0, 26px, 0) scale(1.04); }
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-      transition: color 0.3s ease;
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* =======================
+       Layout
+    ======================= */
+    .wrap {
+      position: relative;
+      z-index: 2;
+      width: min(var(--maxw), calc(100% - 48px));
+      margin: 0 auto;
     }
 
-    a:hover {
-      color: #d81b60;
+    /* Skip to content */
+    .skip {
+      position: absolute;
+      left: -999px;
+      top: 12px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid var(--border);
+      padding: 10px 14px;
+      border-radius: 999px;
+      z-index: 50;
+      backdrop-filter: blur(12px);
     }
+    .skip:focus { left: 12px; }
 
-    section {
-      padding: 60px 20px;
-      text-align: center;
-      opacity: 0;
-      transform: translateY(50px);
-      animation: fadeSlideUp 1s forwards;
+    /* Top nav */
+    .nav {
+      position: sticky;
+      top: 12px;
+      z-index: 20;
+      margin-top: 14px;
     }
-
-    section:nth-child(2) { animation-delay: 0.5s; }
-    section:nth-child(3) { animation-delay: 1s; }
-
-    header {
-      background-color: #ffffff;
-      padding: 100px 20px 80px;
-      text-align: center;
+    .navInner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 999px;
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow2);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 999px;
+    }
+    .mark {
+      width: 38px; height: 38px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 30% 30%, rgba(124,58,237,.9), rgba(6,182,212,.65));
+      box-shadow: 0 10px 28px rgba(124,58,237,.22);
       position: relative;
       overflow: hidden;
-      animation: fadeZoom 1.5s ease-out forwards;
     }
-
-    header::after {
-      content: '';
+    .mark:after {
+      content: "";
       position: absolute;
-      top: -100px;
-      left: -100px;
-      width: 200%;
-      height: 300%;
-      background: radial-gradient(circle, rgba(255,192,203,0.3) 10%, transparent 70%);
-      transform: rotate(25deg);
-      animation: floatBg 10s linear infinite alternate;
+      inset: -40%;
+      background: conic-gradient(from 180deg, rgba(255,255,255,.0), rgba(255,255,255,.35), rgba(255,255,255,.0));
+      animation: sheen 3.6s linear infinite;
+    }
+    @keyframes sheen {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .brandText {
+      display: grid;
+      gap: 1px;
+    }
+    .brandText strong {
+      font-family: "Space Grotesk", Manrope, sans-serif;
+      letter-spacing: -0.02em;
+      font-size: 14px;
+      line-height: 1.1;
+    }
+    .brandText span {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.1;
     }
 
-    header h1 {
-      font-size: 3.5rem;
-      margin: 0;
-      position: relative;
-      z-index: 2;
-      color: #e91e63;
-    }
-
-    header p {
-      font-size: 1.4rem;
-      margin-top: 10px;
-      color: #555;
-      z-index: 2;
-      position: relative;
-    }
-
-    #about {
-      background-color: #fff;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    }
-
-    #about img {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      margin-bottom: 20px;
-      transition: transform 0.4s ease;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-
-    #about img:hover {
-      transform: scale(1.1) rotate(2deg);
-    }
-
-    #projects {
-      background-color: #fce4ec;
-    }
-
-    .projects-container {
+    .navLinks {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .project-card {
-      width: 300px;
-      min-height: 460px;
-      background: white;
-      border-radius: 15px;
-      padding: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      display: flex;
-      flex-direction: column;
       align-items: center;
-      transform: translateY(40px);
-      opacity: 0;
-      animation: fadeSlideUp 1s forwards;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .chip {
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 13px;
+      transition: transform .2s var(--ease), background .2s var(--ease), border-color .2s var(--ease);
+    }
+    .chip:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.12);
+      color: rgba(255,255,255,.85);
     }
 
-    .project-card:nth-child(1) { animation-delay: 0.3s; }
-    .project-card:nth-child(2) { animation-delay: 0.5s; }
-    .project-card:nth-child(3) { animation-delay: 0.7s; }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: linear-gradient(135deg, rgba(124,58,237,.85), rgba(6,182,212,.65));
+      box-shadow: 0 16px 34px rgba(124,58,237,.16);
+      font-weight: 800;
+      font-size: 13px;
+      color: rgba(255,255,255,.96);
+      transition: transform .2s var(--ease), filter .2s var(--ease);
+      white-space: nowrap;
+    }
+    .cta:hover { transform: translateY(-1px); filter: brightness(1.06); }
+    .cta svg { width: 16px; height: 16px; }
 
-    .project-card:hover {
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    /* =======================
+       Hero
+    ======================= */
+    header.hero {
+      padding: 82px 0 26px;
+    }
+    .heroGrid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 26px;
+      align-items: center;
+    }
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      backdrop-filter: blur(14px);
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 13px;
+      width: fit-content;
+    }
+    .dot {
+      width: 9px; height: 9px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, rgba(34,197,94,1), rgba(6,182,212,.7));
+      box-shadow: 0 0 0 6px rgba(34,197,94,.08);
     }
 
-    .project-card img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 15px;
-      cursor: pointer;
+    h1 {
+      margin: 14px 0 10px;
+      font-family: "Space Grotesk", Manrope, sans-serif;
+      font-size: clamp(38px, 5vw, 64px);
+      letter-spacing: -0.04em;
+      line-height: 1.02;
+    }
+    .subtitle {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 62ch;
+      margin: 10px 0 18px;
     }
 
-    .project-card h3 {
-      font-size: 1.5rem;
-      margin: 10px 0;
+    .heroActions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin: 14px 0 16px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      backdrop-filter: blur(14px);
+      color: rgba(255,255,255,.88);
+      font-weight: 800;
+      font-size: 13px;
+      transition: transform .2s var(--ease), background .2s var(--ease), border-color .2s var(--ease);
+    }
+    .btn:hover { transform: translateY(-1px); background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.18); }
+    .btn.primary {
+      border-color: rgba(255,255,255,.16);
+      background: linear-gradient(135deg, rgba(124,58,237,.9), rgba(6,182,212,.65));
+      box-shadow: 0 18px 44px rgba(6,182,212,.12);
+    }
+    .btn svg { width: 16px; height: 16px; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .statCard {
+      padding: 14px 14px 12px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow2);
+    }
+    .statTop {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .statTop span {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 700;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+    }
+    .statTop i {
+      width: 30px; height: 30px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      display: grid;
+      place-items: center;
+    }
+    .statTop svg { width: 16px; height: 16px; opacity: .95; }
+    .statValue {
+      font-family: "Space Grotesk", Manrope, sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .statHint {
+      font-size: 12px;
+      color: var(--muted-2);
+      margin-top: 6px;
+      font-weight: 600;
     }
 
-    .project-card p {
-      font-size: 1rem;
-      color: #555;
-      flex-grow: 1;
+    .heroMedia {
+      position: relative;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      box-shadow: var(--shadow);
+      transform: translateZ(0);
+      min-height: 420px;
     }
-
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
+    .heroMedia::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(900px 520px at 20% 10%, rgba(124,58,237,.22), transparent 55%),
+                  radial-gradient(900px 520px at 80% 10%, rgba(6,182,212,.18), transparent 55%),
+                  linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      z-index: 0;
+    }
+    .heroMedia img {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
+      object-fit: cover;
+      opacity: 0.86;
+      filter: saturate(1.05) contrast(1.04);
+      transform: scale(1.03);
+    }
+    .mediaOverlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(7,10,18,.15), rgba(7,10,18,.72));
+      z-index: 1;
+    }
+    .floatingCard {
+      position: absolute;
+      left: 18px;
+      bottom: 18px;
+      z-index: 2;
+      padding: 14px 14px 12px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(10, 14, 26, 0.62);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow2);
+      max-width: 320px;
+    }
+    .floatingCard .title {
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+      font-family: "Space Grotesk", Manrope, sans-serif;
+    }
+    .floatingCard p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+    .badgeRow {
+      display: flex; gap: 8px; flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .badge {
+      font-size: 12px;
+      font-weight: 800;
+      color: rgba(255,255,255,.86);
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
     }
 
-    .modal img {
-      max-width: 90vw;
-      max-height: 90vh;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    /* =======================
+       Sections
+    ======================= */
+    section {
+      padding: 30px 0;
     }
-
-    .modal:target {
+    .sectionHead {
       display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 14px;
     }
+    .sectionHead h2 {
+      margin: 0;
+      font-family: "Space Grotesk", Manrope, sans-serif;
+      font-size: 22px;
+      letter-spacing: -0.02em;
+    }
+    .sectionHead p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      max-width: 56ch;
+      text-align: right;
+    }
+
+    .panel {
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      backdrop-filter: blur(14px);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow2);
+    }
+
+    /* About */
+    #about .aboutGrid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 18px;
+      padding: 18px;
+    }
+    .aboutCard {
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      position: relative;
+      overflow: hidden;
+    }
+    .aboutCard:before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at 30% 30%, rgba(124,58,237,.25), transparent 55%),
+                  radial-gradient(circle at 70% 20%, rgba(6,182,212,.18), transparent 55%);
+      transform: rotate(10deg);
+    }
+    .aboutInner {
+      position: relative;
+      z-index: 1;
+    }
+    .avatarRow {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+    .avatar {
+      width: 76px;
+      height: 76px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.14);
+      overflow: hidden;
+      box-shadow: 0 16px 44px rgba(0,0,0,.35);
+      background: rgba(255,255,255,.04);
+    }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .who h3 {
+      margin: 0;
+      font-family: "Space Grotesk", Manrope, sans-serif;
+      letter-spacing: -0.02em;
+      font-size: 18px;
+    }
+    .who span {
+      display: inline-block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .aboutCopy {
+      margin-top: 14px;
+      color: rgba(255,255,255,.82);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .skill {
+      padding: 12px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .skill b { font-size: 13px; }
+    .meter {
+      width: 130px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.10);
+      overflow: hidden;
+    }
+    .meter > i {
+      display: block;
+      height: 100%;
+      width: var(--w, 70%);
+      background: linear-gradient(90deg, rgba(124,58,237,.95), rgba(6,182,212,.75));
+      border-radius: 999px;
+    }
+
+    .timeline {
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+    }
+    .timelineItem {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px dashed rgba(255,255,255,.12);
+    }
+    .timelineItem:last-child { border-bottom: none; }
+    .when {
+      color: var(--muted-2);
+      font-weight: 800;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .what b { display: block; font-size: 14px; }
+    .what span { color: var(--muted); font-size: 13px; }
+
+    /* Projects */
+    #projects .filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .pill {
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      font-weight: 800;
+      color: rgba(255,255,255,.78);
+      font-size: 12px;
+      cursor: pointer;
+      transition: transform .18s var(--ease), background .18s var(--ease), border-color .18s var(--ease);
+      user-select: none;
+    }
+    .pill:hover { transform: translateY(-1px); background: rgba(255,255,255,.06); }
+    .pill.active {
+      background: linear-gradient(135deg, rgba(124,58,237,.85), rgba(6,182,212,.55));
+      border-color: rgba(255,255,255,.18);
+      color: rgba(255,255,255,.92);
+    }
+
+    .projectsGrid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      padding: 14px;
+    }
+    .projectCard {
+      position: relative;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform .2s var(--ease), border-color .2s var(--ease), background .2s var(--ease);
+      min-height: 330px;
+      display: grid;
+      grid-template-rows: 1fr auto;
+    }
+    .projectCard:hover { transform: translateY(-3px); border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.055); }
+    .projectMedia {
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+    .projectMedia img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.05);
+      transition: transform .65s var(--ease), filter .65s var(--ease);
+      filter: saturate(1.08) contrast(1.04);
+    }
+    .projectCard:hover .projectMedia img { transform: scale(1.12); filter: saturate(1.18) contrast(1.08); }
+
+    .projectMeta {
+      padding: 14px 14px 12px;
+      display: grid;
+      gap: 8px;
+    }
+    .projectMeta h3 {
+      margin: 0;
+      font-family: "Space Grotesk", Manrope, sans-serif;
+      letter-spacing: -0.02em;
+      font-size: 16px;
+    }
+    .projectMeta p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    .tagRow {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-top: 4px;
+    }
+    .tag {
+      padding: 7px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      font-size: 12px;
+      font-weight: 800;
+      color: rgba(255,255,255,.78);
+    }
+
+    /* Case Study Drawer */
+    dialog#caseModal {
+      width: min(980px, calc(100% - 28px));
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(7,10,18,.72);
+      backdrop-filter: blur(18px);
+      color: var(--text);
+      border-radius: 22px;
+      padding: 0;
+      box-shadow: var(--shadow);
+    }
+    dialog::backdrop {
+      background: rgba(0,0,0,.55);
+      backdrop-filter: blur(6px);
+    }
+    .modalHeader {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 14px 10px;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+    .modalHeader .left {
+      display: grid;
+      gap: 3px;
+    }
+    .modalHeader h3 {
+      margin: 0;
+      font-family: "Space Grotesk", Manrope, sans-serif;
+      font-size: 16px;
+      letter-spacing: -0.02em;
+    }
+    .modalHeader span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .iconBtn {
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.92);
+      border-radius: 14px;
+      padding: 10px 12px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: transform .18s var(--ease), background .18s var(--ease);
+    }
+    .iconBtn:hover { transform: translateY(-1px); background: rgba(255,255,255,.08); }
+
+    .modalBody {
+      padding: 14px;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 12px;
+    }
+    .modalGallery {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      min-height: 360px;
+      position: relative;
+    }
+    .modalGallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .galleryNav {
+      position: absolute;
+      inset: auto 10px 10px 10px;
+      display: flex;
+      gap: 8px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .galleryNav button {
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.35);
+      color: rgba(255,255,255,.92);
+      padding: 10px 12px;
+      border-radius: 14px;
+      cursor: pointer;
+      font-weight: 900;
+      backdrop-filter: blur(10px);
+      transition: transform .18s var(--ease), background .18s var(--ease);
+    }
+    .galleryNav button:hover { transform: translateY(-1px); background: rgba(0,0,0,.45); }
+
+    .modalContent {
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .mini {
+      padding: 12px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+    }
+    .mini h4 {
+      margin: 0 0 6px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--muted-2);
+    }
+    .mini p { margin: 0; font-size: 13px; color: rgba(255,255,255,.82); line-height: 1.5; }
+    .mini ul { margin: 0; padding-left: 16px; color: rgba(255,255,255,.82); font-size: 13px; }
+    .mini li { margin: 6px 0; }
+
+    .progressWrap {
+      padding: 12px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+    }
+    .bar {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.10);
+      overflow: hidden;
+    }
+    .bar i {
+      display: block;
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(124,58,237,.95), rgba(6,182,212,.75));
+      transition: width 1.2s var(--ease);
+    }
+    .barLegend {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      padding: 14px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .quote {
+      padding: 16px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      position: relative;
+      overflow: hidden;
+    }
+    .quote:before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at 30% 30%, rgba(6,182,212,.16), transparent 55%),
+                  radial-gradient(circle at 70% 40%, rgba(124,58,237,.16), transparent 55%);
+      transform: rotate(-8deg);
+    }
+    .quoteInner { position: relative; z-index: 1; }
+    .quote p { margin: 0; color: rgba(255,255,255,.85); font-size: 13px; line-height: 1.55; }
+    .quote b { display: block; margin-top: 10px; font-size: 12px; color: var(--muted); }
+
+    /* Contact */
+    #contact .contactGrid {
+      padding: 14px;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 12px;
+    }
+    form {
+      display: grid;
+      gap: 10px;
+      padding: 14px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+    }
+    label { font-size: 12px; color: var(--muted); font-weight: 800; letter-spacing: .03em; text-transform: uppercase; }
+    input, textarea {
+      width: 100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
+      color: rgba(255,255,255,.92);
+      outline: none;
+      font-family: inherit;
+      font-weight: 650;
+      transition: border-color .2s var(--ease), background .2s var(--ease);
+    }
+    input:focus, textarea:focus { border-color: rgba(6,182,212,.38); background: rgba(0,0,0,.26); }
+    textarea { min-height: 120px; resize: vertical; }
+    .formRow { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .hint { font-size: 12px; color: var(--muted-2); margin-top: -6px; }
+    .submitRow { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .toast {
+      display: none;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.22);
+      color: rgba(255,255,255,.86);
+      font-weight: 800;
+      font-size: 12px;
+    }
+    .toast.show { display: inline-flex; }
+
+    .contactCard {
+      padding: 14px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+    .contactCard a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      transition: transform .18s var(--ease), background .18s var(--ease), border-color .18s var(--ease);
+      font-weight: 850;
+      font-size: 13px;
+      color: rgba(255,255,255,.88);
+    }
+    .contactCard a:hover { transform: translateY(-1px); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.18); }
+    .contactCard small { color: var(--muted); font-size: 12px; font-weight: 700; }
 
     footer {
-      background-color: #333;
-      color: white;
-      padding: 30px 20px;
+      padding: 36px 0 44px;
+      color: var(--muted-2);
+      font-size: 12px;
       text-align: center;
     }
 
-    footer a {
-      margin: 0 10px;
-      font-size: 1.5rem;
-      color: white;
-      transition: color 0.3s ease;
+    /* Cursor glow */
+    .cursorGlow {
+      position: fixed;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      pointer-events: none;
+      background: radial-gradient(circle at center, rgba(6,182,212,.10), rgba(124,58,237,.08), transparent 60%);
+      filter: blur(18px);
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      opacity: 0;
+      transition: opacity .25s var(--ease);
     }
 
-    footer a:hover {
-      color: #e91e63;
+    /* Reveal animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .7s var(--ease), transform .7s var(--ease);
+    }
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    @keyframes fadeSlideUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+      .cursorGlow { display: none; }
     }
 
-    @keyframes fadeZoom {
-      from {
-        transform: scale(0.9);
-        opacity: 0;
-      }
-      to {
-        transform: scale(1);
-        opacity: 1;
-      }
+    /* Responsive */
+    @media (max-width: 980px) {
+      .heroGrid { grid-template-columns: 1fr; }
+      .heroMedia { min-height: 360px; }
+      #about .aboutGrid { grid-template-columns: 1fr; }
+      .projectsGrid { grid-template-columns: 1fr 1fr; }
+      .modalBody { grid-template-columns: 1fr; }
+      .testimonials { grid-template-columns: 1fr; }
+      #contact .contactGrid { grid-template-columns: 1fr; }
     }
-
-    @keyframes floatBg {
-      from {
-        transform: rotate(25deg) translate(0, 0);
-      }
-      to {
-        transform: rotate(25deg) translate(50px, 40px);
-      }
-    }
-
-    @media (max-width: 768px) {
-      .projects-container {
-        flex-direction: column;
-        align-items: center;
-      }
-      .project-card {
-        width: 90%;
-      }
+    @media (max-width: 640px) {
+      .navLinks { display: none; }
+      .stats { grid-template-columns: 1fr; }
+      .projectsGrid { grid-template-columns: 1fr; }
+      .formRow { grid-template-columns: 1fr; }
+      .sectionHead { flex-direction: column; align-items: flex-start; }
+      .sectionHead p { text-align: left; }
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <h1><span id="typed"></span></h1>
-    <p>Strategic Branding • Graphic Design • Public Relations</p>
-  </header>
+  <a class="skip" href="#main">Skip to content</a>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <img src="riley-huskey.jpg" alt="Riley Huskey">
-    <p>I’m a creative communicator focused on brand storytelling, digital presence, and PR strategy. With every project, I aim to bring clarity, emotion, and intention to visual communication.</p>
-  </section>
+  <div class="blob a"></div>
+  <div class="blob b"></div>
+  <div class="blob c"></div>
+  <div class="noise"></div>
+  <div class="cursorGlow" id="cursorGlow" aria-hidden="true"></div>
 
-  <section id="projects">
-    <h2>My Work</h2>
-    <div class="projects-container">
-      <div class="project-card" data-tilt>
-        <a href="#img1"><img src="project1.jpg" alt="Project 1"></a>
-        <h3>BenchRacers</h3>
-        <p>Brand concept and campaign identity for a Gen Z media launch.</p>
-      </div>
-      <div class="project-card" data-tilt>
-        <a href="#img2"><img src="project2.jpg" alt="Project 2"></a>
-        <h3>Visual Suite</h3>
-        <p>Developed a cohesive brand system: logo, palette, and social kit.</p>
-      </div>
-      <div class="project-card" data-tilt>
-        <a href="#img3"><img src="project3.jpg" alt="Project 3"></a>
-        <h3>"Me When" Design</h3>
-        <p>Art direction and social visuals for a humor-focused campaign.</p>
+  <div class="wrap">
+    <!-- NAV -->
+    <div class="nav">
+      <div class="navInner">
+        <a class="brand" href="#top" aria-label="Go to top">
+          <div class="mark" aria-hidden="true"></div>
+          <div class="brandText">
+            <strong>Riley Huskey</strong>
+            <span>Creative Brand Strategist</span>
+          </div>
+        </a>
+
+        <div class="navLinks" aria-label="Primary">
+          <a class="chip" href="#about">About</a>
+          <a class="chip" href="#projects">Work</a>
+          <a class="chip" href="#testimonials">Proof</a>
+          <a class="chip" href="#contact">Contact</a>
+        </div>
+
+        <a class="cta" href="#contact" aria-label="Jump to contact">
+          Let’s talk
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 12h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
       </div>
     </div>
-  </section>
 
-  <!-- Lightbox Modals -->
-  <div id="img1" class="modal" onclick="location.href='#projects'">
-    <img src="project1.jpg" alt="Project 1 Full">
-  </div>
-  <div id="img2" class="modal" onclick="location.href='#projects'">
-    <img src="project2.jpg" alt="Project 2 Full">
-  </div>
-  <div id="img3" class="modal" onclick="location.href='#projects'">
-    <img src="project3.jpg" alt="Project 3 Full">
+    <!-- HERO -->
+    <header id="top" class="hero">
+      <div class="heroGrid">
+        <div>
+          <div class="kicker reveal">
+            <div class="dot" aria-hidden="true"></div>
+            <span>Available for internships • Brand + PR + Design</span>
+          </div>
+
+          <h1 class="reveal">
+            <span id="typed"></span>
+          </h1>
+
+          <p class="subtitle reveal">
+            I build brand systems that look premium, read clearly, and convert.
+            Strategy-first creative: positioning, visual identity, social kits, and PR-ready messaging.
+          </p>
+
+          <div class="heroActions reveal">
+            <a class="btn primary" href="#projects" aria-label="View case studies">
+              View case studies
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+
+            <a class="btn" href="mailto:huskeyriley@yahoo.com?subject=Opportunity%20for%20Riley%20Huskey" aria-label="Email Riley">
+              Email me
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="2" />
+                <path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+
+            <a class="btn" href="https://www.linkedin.com/in/riley-huskey-651591295" target="_blank" rel="noopener noreferrer" aria-label="Open LinkedIn">
+              LinkedIn
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6.5 10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M6.5 6.5v.2" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                <path d="M10.5 20V10.8c0-1.2.9-2.3 2.5-2.3 1.5 0 2.5 1 2.5 2.6V20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M17.5 10v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+          </div>
+
+          <div class="stats">
+            <div class="statCard reveal">
+              <div class="statTop">
+                <span>Focus</span>
+                <i aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+              </div>
+              <div class="statValue">Strategy → Creative</div>
+              <div class="statHint">Positioning first, visuals second.</div>
+            </div>
+
+            <div class="statCard reveal">
+              <div class="statTop">
+                <span>Strength</span>
+                <i aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M4 17l6-6 4 4 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M20 7v6h-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+              </div>
+              <div class="statValue">Brand Systems</div>
+              <div class="statHint">Logo, palette, type, templates.</div>
+            </div>
+
+            <div class="statCard reveal">
+              <div class="statTop">
+                <span>Output</span>
+                <i aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M8 7h12M8 12h12M8 17h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M4 7h.01M4 12h.01M4 17h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                  </svg>
+                </i>
+              </div>
+              <div class="statValue">Design + PR</div>
+              <div class="statHint">Creatives that ship + read well.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="heroMedia reveal" id="heroMedia" aria-label="Hero image">
+          <img src="images/header-photo.jpg" alt="Header Visual" />
+          <div class="mediaOverlay" aria-hidden="true"></div>
+          <div class="floatingCard">
+            <div class="title">What you get</div>
+            <p>Clear positioning, clean design, and deliverables that look expensive—without feeling busy.</p>
+            <div class="badgeRow">
+              <span class="badge">Brand Identity</span>
+              <span class="badge">Campaign Creative</span>
+              <span class="badge">PR Messaging</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ABOUT -->
+      <section id="about" class="reveal">
+        <div class="sectionHead">
+          <h2>About</h2>
+          <p>Short, sharp: what I do, how I think, and how I deliver.</p>
+        </div>
+
+        <div class="panel">
+          <div class="aboutGrid">
+            <div class="aboutCard">
+              <div class="aboutInner">
+                <div class="avatarRow">
+                  <div class="avatar">
+                    <img src="riley-huskey.jpg" alt="Riley Huskey" />
+                  </div>
+                  <div class="who">
+                    <h3>Riley Huskey</h3>
+                    <span>Advertising & PR Student • Brand Strategy + Design</span>
+                  </div>
+                </div>
+
+                <p class="aboutCopy">
+                  I’m a creative communicator focused on brand storytelling, digital presence, and PR strategy.
+                  I work best when a project needs clarity: a cleaner message, a tighter system, and visuals that match the value.
+                </p>
+
+                <div class="skills">
+                  <div class="skill">
+                    <b>Brand Positioning</b>
+                    <div class="meter" aria-label="Brand Positioning proficiency"><i style="--w: 86%"></i></div>
+                  </div>
+                  <div class="skill">
+                    <b>Visual Identity</b>
+                    <div class="meter" aria-label="Visual Identity proficiency"><i style="--w: 90%"></i></div>
+                  </div>
+                  <div class="skill">
+                    <b>Social Systems</b>
+                    <div class="meter" aria-label="Social Systems proficiency"><i style="--w: 84%"></i></div>
+                  </div>
+                  <div class="skill">
+                    <b>PR Messaging</b>
+                    <div class="meter" aria-label="PR Messaging proficiency"><i style="--w: 78%"></i></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline">
+              <div class="timelineItem">
+                <div class="when">Step 1</div>
+                <div class="what">
+                  <b>Discover</b>
+                  <span>Audience, competitors, differentiators, constraints.</span>
+                </div>
+              </div>
+              <div class="timelineItem">
+                <div class="when">Step 2</div>
+                <div class="what">
+                  <b>Define</b>
+                  <span>Positioning, messaging hierarchy, tone, narrative.</span>
+                </div>
+              </div>
+              <div class="timelineItem">
+                <div class="when">Step 3</div>
+                <div class="what">
+                  <b>Design</b>
+                  <span>Identity system + modular templates built to scale.</span>
+                </div>
+              </div>
+              <div class="timelineItem">
+                <div class="when">Step 4</div>
+                <div class="what">
+                  <b>Deploy</b>
+                  <span>Social kits, launch assets, PR-ready packaging.</span>
+                </div>
+              </div>
+              <div class="timelineItem">
+                <div class="when">Step 5</div>
+                <div class="what">
+                  <b>Optimize</b>
+                  <span>Iterate based on feedback, performance, consistency.</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects" class="reveal">
+        <div class="sectionHead">
+          <h2>Work</h2>
+          <div class="filters" aria-label="Project filters">
+            <div class="pill active" data-filter="all">All</div>
+            <div class="pill" data-filter="branding">Branding</div>
+            <div class="pill" data-filter="campaign">Campaign</div>
+            <div class="pill" data-filter="social">Social</div>
+            <div class="pill" data-filter="pr">PR</div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="projectsGrid" id="projectsGrid">
+
+            <!-- Project 1 -->
+            <article class="projectCard" data-tilt data-tags="branding,campaign,social" tabindex="0"
+              data-title="BenchRacers"
+              data-subtitle="Brand concept + campaign identity for a Gen Z media launch."
+              data-role="Brand Strategy, Visual Identity, Social System"
+              data-problem="Create a launch-ready identity that feels Gen Z-native, scalable, and recognizable across social."
+              data-solution="Built a modular identity system with a bold typographic voice, punchy color language, and a repeatable content kit."
+              data-impact="Higher clarity, faster content creation, and a consistent look across formats (post, story, reel covers)."
+              data-metrics="Brand consistency, social readability, repeatable templates"
+              data-img="project1.jpg,project1.jpg,project1.jpg"
+            >
+              <div class="projectMedia">
+                <img src="project1.jpg" alt="BenchRacers preview">
+              </div>
+              <div class="projectMeta">
+                <h3>BenchRacers</h3>
+                <p>Brand concept and campaign identity for a Gen Z media launch.</p>
+                <div class="tagRow">
+                  <span class="tag">Branding</span>
+                  <span class="tag">Campaign</span>
+                  <span class="tag">Social Kit</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 2 -->
+            <article class="projectCard" data-tilt data-tags="branding,social" tabindex="0"
+              data-title="Visual Suite"
+              data-subtitle="Cohesive brand system: logo, palette, typography, and social kit."
+              data-role="Identity Design, Layout System, Template Build"
+              data-problem="Make the brand look premium and consistent across multiple channels with minimal friction."
+              data-solution="Defined brand rules (type scale, spacing, color usage) and built template modules for fast reuse."
+              data-impact="Reduced creative decision fatigue and improved consistency across every post."
+              data-metrics="Template speed, brand uniformity, visual hierarchy"
+              data-img="project2.jpg,project2.jpg,project2.jpg"
+            >
+              <div class="projectMedia">
+                <img src="project2.jpg" alt="Visual Suite preview">
+              </div>
+              <div class="projectMeta">
+                <h3>Visual Suite</h3>
+                <p>Developed a cohesive brand system: logo, palette, and social kit.</p>
+                <div class="tagRow">
+                  <span class="tag">Identity</span>
+                  <span class="tag">Templates</span>
+                  <span class="tag">Social</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 3 -->
+            <article class="projectCard" data-tilt data-tags="campaign,social,pr" tabindex="0"
+              data-title="&quot;Me When&quot; Design"
+              data-subtitle="Art direction + social visuals for a humor-focused campaign."
+              data-role="Art Direction, Social Design, Message Clarity"
+              data-problem="Keep the humor while making it readable, on-brand, and fast to produce."
+              data-solution="Built a system for punchline hierarchy, image treatment, and repeatable caption/visual pairing."
+              data-impact="More scroll-stopping visuals with clear punchlines and better retention."
+              data-metrics="Readability, hook strength, repeatability"
+              data-img="project3.jpg,project3.jpg,project3.jpg"
+            >
+              <div class="projectMedia">
+                <img src="project3.jpg" alt="Me When Design preview">
+              </div>
+              <div class="projectMeta">
+                <h3>"Me When" Design</h3>
+                <p>Art direction and social visuals for a humor-focused campaign.</p>
+                <div class="tagRow">
+                  <span class="tag">Campaign</span>
+                  <span class="tag">Social</span>
+                  <span class="tag">Messaging</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS / PROOF -->
+      <section id="testimonials" class="reveal">
+        <div class="sectionHead">
+          <h2>Proof</h2>
+          <p>Replace these with real quotes + names/titles when you have them.</p>
+        </div>
+
+        <div class="panel">
+          <div class="testimonials">
+            <div class="quote">
+              <div class="quoteInner">
+                <p>“The work instantly made the brand feel more premium. Everything looked cohesive and intentional.”</p>
+                <b>— Client / Teammate (Title)</b>
+              </div>
+            </div>
+            <div class="quote">
+              <div class="quoteInner">
+                <p>“Fast turnaround, clean strategy, and the templates saved us time every week.”</p>
+                <b>— Partner (Title)</b>
+              </div>
+            </div>
+            <div class="quote">
+              <div class="quoteInner">
+                <p>“Messaging got clearer, visuals got sharper, and our content stopped feeling random.”</p>
+                <b>— Stakeholder (Title)</b>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="reveal">
+        <div class="sectionHead">
+          <h2>Contact</h2>
+          <p>Send a note, or hit the direct links. Form uses email client (no server required).</p>
+        </div>
+
+        <div class="panel">
+          <div class="contactGrid">
+            <form id="contactForm">
+              <div class="formRow">
+                <div>
+                  <label for="name">Name</label>
+                  <input id="name" name="name" autocomplete="name" placeholder="Your name" required />
+                </div>
+                <div>
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required />
+                </div>
+              </div>
+
+              <div>
+                <label for="subject">Subject</label>
+                <input id="subject" name="subject" placeholder="Opportunity / Project / Question" required />
+              </div>
+
+              <div>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Tell me what you need, timelines, deliverables, and context." required></textarea>
+                <div class="hint">Tip: include goal, audience, deadline, and assets you already have.</div>
+              </div>
+
+              <div class="submitRow">
+                <button class="btn primary" type="submit">
+                  Send message
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+                <span class="toast" id="toast">Draft opened in your email client.</span>
+              </div>
+            </form>
+
+            <div class="contactCard">
+              <div class="aboutCopy" style="margin:0;">
+                If you’re hiring: I’m best used where you need strategy + execution — a clean story, clean visuals, and deliverables that ship.
+              </div>
+
+              <a href="https://github.com/rileyhuskey" target="_blank" rel="noopener noreferrer">
+                <span>GitHub</span><small>Projects + code</small>
+              </a>
+              <a href="https://www.linkedin.com/in/riley-huskey-651591295" target="_blank" rel="noopener noreferrer">
+                <span>LinkedIn</span><small>Experience + network</small>
+              </a>
+              <a href="mailto:huskeyriley@yahoo.com">
+                <span>Email</span><small>huskeyriley@yahoo.com</small>
+              </a>
+
+              <div class="progressWrap" aria-label="Portfolio completeness">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                  <div style="font-weight:900;">Portfolio polish</div>
+                  <div style="color:var(--muted); font-weight:800; font-size:12px;">Auto-check</div>
+                </div>
+                <div class="bar"><i id="polishBar"></i></div>
+                <div class="barLegend">
+                  <span>Basics</span>
+                  <span id="polishPct">0%</span>
+                  <span>Case studies</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div style="opacity:.9;">
+          © <span id="year"></span> Riley Huskey • Built with clean HTML/CSS/JS • No frameworks
+        </div>
+      </footer>
+    </main>
   </div>
 
-  <footer>
-    <p>Connect with me!</p>
-    <a href="https://github.com/rileyhuskey" target="_blank">GitHub</a>
-    <a href="https://www.linkedin.com/in/riley-huskey-651591295" target="_blank">LinkedIn</a>
-    <a href="mailto:huskeyriley@yahoo.com">Email</a>
-  </footer>
+  <!-- CASE STUDY MODAL -->
+  <dialog id="caseModal" aria-label="Case study modal">
+    <div class="modalHeader">
+      <div class="left">
+        <h3 id="mTitle">Case Study</h3>
+        <span id="mSubtitle">Details</span>
+      </div>
+      <button class="iconBtn" id="closeModal" aria-label="Close">Close</button>
+    </div>
+
+    <div class="modalBody">
+      <div class="modalGallery">
+        <img id="mImg" src="" alt="Project image">
+        <div class="galleryNav">
+          <button id="prevImg" aria-label="Previous image">←</button>
+          <button id="nextImg" aria-label="Next image">→</button>
+        </div>
+      </div>
+
+      <div class="modalContent">
+        <div class="grid2">
+          <div class="mini">
+            <h4>Role</h4>
+            <p id="mRole"></p>
+          </div>
+          <div class="mini">
+            <h4>Focus</h4>
+            <p id="mMetrics"></p>
+          </div>
+        </div>
+
+        <div class="mini">
+          <h4>Problem</h4>
+          <p id="mProblem"></p>
+        </div>
+
+        <div class="mini">
+          <h4>Solution</h4>
+          <p id="mSolution"></p>
+        </div>
+
+        <div class="mini">
+          <h4>Impact</h4>
+          <p id="mImpact"></p>
+        </div>
+
+        <div class="mini">
+          <h4>What I’d improve next</h4>
+          <ul id="mNext"></ul>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Typed.js + VanillaTilt (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
 
   <script>
-    VanillaTilt.init(document.querySelectorAll(".project-card"), {
-      max: 15,
-      speed: 400,
-      glare: true,
-      "max-glare": 0.2
+    /* =======================
+       Helpers
+    ======================= */
+    const $ = (s, root = document) => root.querySelector(s);
+    const $$ = (s, root = document) => Array.from(root.querySelectorAll(s));
+
+    // Footer year
+    $("#year").textContent = new Date().getFullYear();
+
+    // Cursor glow
+    const glow = $("#cursorGlow");
+    let glowOn = false;
+    window.addEventListener("mousemove", (e) => {
+      if (!glowOn) { glow.style.opacity = 1; glowOn = true; }
+      glow.style.left = e.clientX + "px";
+      glow.style.top  = e.clientY + "px";
+    }, { passive: true });
+    window.addEventListener("mouseleave", () => { glow.style.opacity = 0; glowOn = false; });
+
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) en.target.classList.add("show");
+      });
+    }, { threshold: 0.12 });
+    $$(".reveal").forEach(el => io.observe(el));
+
+    // Tilt
+    if (window.VanillaTilt) {
+      VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+        max: 10,
+        speed: 600,
+        glare: true,
+        "max-glare": 0.14,
+        scale: 1.02
+      });
+    }
+
+    // Typed hero
+    if (window.Typed) {
+      new Typed("#typed", {
+        strings: [
+          "Riley Huskey",
+          "Advertising & PR Student",
+          "Creative Brand Strategist",
+          "Strategic Branding • Design • PR"
+        ],
+        typeSpeed: 58,
+        backSpeed: 32,
+        backDelay: 900,
+        smartBackspace: true,
+        loop: true
+      });
+    } else {
+      $("#typed").textContent = "Riley Huskey";
+    }
+
+    /* =======================
+       Project filtering + modal case studies
+    ======================= */
+    const pills = $$(".pill");
+    const cards = $$(".projectCard");
+    const grid = $("#projectsGrid");
+
+    function setActivePill(el) {
+      pills.forEach(p => p.classList.remove("active"));
+      el.classList.add("active");
+    }
+
+    function applyFilter(tag) {
+      cards.forEach(c => {
+        const tags = (c.getAttribute("data-tags") || "").split(",").map(s => s.trim());
+        const show = tag === "all" || tags.includes(tag);
+        c.style.display = show ? "grid" : "none";
+      });
+    }
+
+    pills.forEach(p => {
+      p.addEventListener("click", () => {
+        setActivePill(p);
+        applyFilter(p.getAttribute("data-filter"));
+      });
     });
 
-    new Typed("#typed", {
-      strings: ["Riley Huskey", "Advertising & PR Student", "Creative Brand Strategist"],
-      typeSpeed: 70,
-      backSpeed: 40,
-      loop: true
+    // Case modal wiring
+    const modal = $("#caseModal");
+    const closeModal = $("#closeModal");
+    const mTitle = $("#mTitle");
+    const mSubtitle = $("#mSubtitle");
+    const mRole = $("#mRole");
+    const mProblem = $("#mProblem");
+    const mSolution = $("#mSolution");
+    const mImpact = $("#mImpact");
+    const mMetrics = $("#mMetrics");
+    const mImg = $("#mImg");
+    const mNext = $("#mNext");
+    const prevImg = $("#prevImg");
+    const nextImg = $("#nextImg");
+
+    let gallery = [];
+    let gIndex = 0;
+
+    function setGalleryIndex(i) {
+      if (!gallery.length) return;
+      gIndex = (i + gallery.length) % gallery.length;
+      mImg.src = gallery[gIndex];
+    }
+
+    function openCase(card) {
+      const title = card.dataset.title || "Case Study";
+      const subtitle = card.dataset.subtitle || "";
+      const role = card.dataset.role || "";
+      const problem = card.dataset.problem || "";
+      const solution = card.dataset.solution || "";
+      const impact = card.dataset.impact || "";
+      const metrics = card.dataset.metrics || "";
+      const imgs = (card.dataset.img || "").split(",").map(s => s.trim()).filter(Boolean);
+
+      gallery = imgs.length ? imgs : [card.querySelector("img")?.getAttribute("src") || ""];
+      gIndex = 0;
+
+      mTitle.textContent = title;
+      mSubtitle.textContent = subtitle;
+      mRole.textContent = role;
+      mProblem.textContent = problem;
+      mSolution.textContent = solution;
+      mImpact.textContent = impact;
+      mMetrics.textContent = metrics;
+
+      // “Improve next” auto bullets (you should customize per project)
+      mNext.innerHTML = "";
+      const nextIdeas = [
+        "Add a measurable before/after (engagement, reach, conversions).",
+        "Show the system rules (type scale, spacing, palette usage).",
+        "Include 3–5 real deliverables: posts, story frames, banners, press copy."
+      ];
+      nextIdeas.forEach(t => {
+        const li = document.createElement("li");
+        li.textContent = t;
+        mNext.appendChild(li);
+      });
+
+      mImg.alt = title + " image";
+      setGalleryIndex(0);
+
+      if (typeof modal.showModal === "function") modal.showModal();
+      else modal.setAttribute("open", "");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeCase() {
+      if (typeof modal.close === "function") modal.close();
+      else modal.removeAttribute("open");
+      document.body.style.overflow = "";
+    }
+
+    cards.forEach(card => {
+      card.addEventListener("click", () => openCase(card));
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          openCase(card);
+        }
+      });
+    });
+
+    closeModal.addEventListener("click", closeCase);
+    modal.addEventListener("click", (e) => {
+      // click outside content closes
+      const rect = modal.getBoundingClientRect();
+      const inside = e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom;
+      if (!inside) closeCase();
+    });
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.open) closeCase();
+    });
+
+    prevImg.addEventListener("click", () => setGalleryIndex(gIndex - 1));
+    nextImg.addEventListener("click", () => setGalleryIndex(gIndex + 1));
+
+    /* =======================
+       Contact form (mailto)
+    ======================= */
+    const form = $("#contactForm");
+    const toast = $("#toast");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = $("#name").value.trim();
+      const email = $("#email").value.trim();
+      const subject = $("#subject").value.trim();
+      const message = $("#message").value.trim();
+
+      const body = [
+        `Name: ${name}`,
+        `Email: ${email}`,
+        ``,
+        message
+      ].join("\n");
+
+      const mailto = `mailto:huskeyriley@yahoo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailto;
+
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 2800);
+    });
+
+    /* =======================
+       “Portfolio polish” auto meter
+       - crude heuristic based on whether real image paths exist
+    ======================= */
+    function computePolish() {
+      let score = 45; // base
+      const images = $$("img").map(img => img.getAttribute("src") || "");
+      const hasHeader = images.some(s => s.includes("header-photo"));
+      const hasAvatar = images.some(s => s.includes("riley-huskey"));
+      const projectImgs = images.filter(s => s.includes("project"));
+
+      if (hasHeader) score += 10;
+      if (hasAvatar) score += 10;
+      if (projectImgs.length >= 3) score += 10;
+
+      // case study fields populated?
+      const anyData = cards.some(c => (c.dataset.problem || "").length > 20 && (c.dataset.solution || "").length > 20);
+      if (anyData) score += 15;
+
+      // limit
+      score = Math.max(0, Math.min(100, score));
+      return score;
+    }
+
+    const polish = computePolish();
+    const bar = $("#polishBar");
+    const pct = $("#polishPct");
+    requestAnimationFrame(() => {
+      bar.style.width = polish + "%";
+      pct.textContent = polish + "%";
     });
   </script>
 </body>
