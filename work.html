@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Riley Huskey | Work</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+
+<body data-page="work">
+  <div class="sparkleLayer" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <!-- UNIVERSAL NAV -->
+    <div class="nav">
+      <div class="navInner">
+        <a class="brand" href="index.html" aria-label="Go to home">
+          <div class="logoDot" aria-hidden="true"></div>
+          <div class="brandText">
+            <strong>Riley Huskey</strong>
+            <span>Advertising • Marketing • Digital Design • Branding</span>
+          </div>
+        </a>
+
+        <nav class="navLinks" aria-label="Primary">
+          <a class="chip" href="index.html" data-page="index">Home</a>
+          <a class="chip" href="work.html" data-page="work">Work</a>
+          <a class="chip" href="contact.html" data-page="contact">Contact</a>
+        </nav>
+
+        <a class="navCTA" href="contact.html">Contact</a>
+      </div>
+    </div>
+
+    <header class="hero">
+      <div class="sectionHead">
+        <h1>Work</h1>
+        <p>Click a project for details.</p>
+      </div>
+
+      <div class="panel">
+        <div class="workGrid">
+          <article class="workCard"
+            data-title="BenchRacers"
+            data-img="images/project1.jpg"
+            data-desc="Campaign identity + digital design assets built for a Gen Z media launch. Bold hierarchy, fast readability, cohesive look across formats."
+          >
+            <div class="workMedia"><img src="images/project1.jpg" alt="BenchRacers preview"></div>
+            <div class="workBody">
+              <h3>BenchRacers</h3>
+              <p>Campaign identity + digital assets for launch.</p>
+              <div class="tags">
+                <span class="tag">Advertising</span><span class="tag">Campaign</span><span class="tag">Digital</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="workCard"
+            data-title="Visual Suite"
+            data-img="images/project2.jpg"
+            data-desc="Branding + template system: palette, typography, layout rules, and reusable social formats to keep content consistent and quick to produce."
+          >
+            <div class="workMedia"><img src="images/project2.jpg" alt="Visual Suite preview"></div>
+            <div class="workBody">
+              <h3>Visual Suite</h3>
+              <p>Brand system + templates for consistency.</p>
+              <div class="tags">
+                <span class="tag">Branding</span><span class="tag">Templates</span><span class="tag">Design</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="workCard"
+            data-title="“Me When” Design"
+            data-img="images/project3.jpg"
+            data-desc="Social-first design system for a humor campaign. Strong headline hierarchy, consistent styling, fast production across posts."
+          >
+            <div class="workMedia"><img src="images/project3.jpg" alt="Me When Design preview"></div>
+            <div class="workBody">
+              <h3>“Me When” Design</h3>
+              <p>Social-first visuals with clear hierarchy.</p>
+              <div class="tags">
+                <span class="tag">Social</span><span class="tag">Content</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </header>
+
+    <footer>© Riley Huskey</footer>
+  </div>
+
+  <dialog id="modal" aria-label="Project details">
+    <div class="mHead">
+      <h3 id="mTitle">Project</h3>
+      <button class="mClose" id="mClose" aria-label="Close">Close</button>
+    </div>
+    <div class="mBody">
+      <div class="mImg"><img id="mImg" src="" alt="Project image"></div>
+      <div class="mInfo" id="mDesc"></div>
+    </div>
+  </dialog>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>
