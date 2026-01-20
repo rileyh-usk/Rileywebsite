@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Riley Huskey — pink-forward portfolio. Branding, design, PR." />
+  <meta name="description" content="Riley Huskey — Advertising, Marketing, Digital Design, Branding." />
   <meta name="theme-color" content="#ffd3e8" />
-  <title>Riley Huskey | Pink Portfolio</title>
+  <title>Riley Huskey | Portfolio</title>
 
   <!-- Fonts: bubbly + clean -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,8 +28,6 @@
       --lav:#d9b8ff;
 
       /* “Sticker” look */
-      --stroke:#ffffff;
-      --stroke2: rgba(255,255,255,.7);
       --shadow: 0 18px 40px rgba(118, 36, 79, .18);
       --shadow2: 0 10px 20px rgba(118, 36, 79, .12);
 
@@ -188,9 +186,7 @@
     }
 
     /* ===== Hero ===== */
-    header.hero{
-      padding: 76px 0 22px;
-    }
+    header.hero{ padding: 76px 0 22px; }
     .heroCard{
       position:relative;
       border-radius: var(--radiusXL);
@@ -208,29 +204,11 @@
       position:relative;
       z-index:2;
     }
-    .kicker{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 10px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.7);
-      border: 2px solid rgba(255,255,255,.92);
-      font-weight:700;
-      color: var(--muted);
-      width: fit-content;
-      box-shadow: 0 10px 18px rgba(118,36,79,.08);
-    }
-    .kDot{
-      width:10px; height:10px; border-radius:999px;
-      background: radial-gradient(circle at 30% 30%, var(--pink), var(--pink2));
-      box-shadow: 0 0 0 6px rgba(255,79,184,.12);
-    }
 
     .heroTitle{
-      margin: 14px 0 10px;
+      margin: 0 0 10px;
       font-family:"Fredoka", system-ui, sans-serif;
-      font-size: clamp(42px, 5.2vw, 72px);
+      font-size: clamp(44px, 5.4vw, 74px);
       line-height: .98;
       letter-spacing: -.02em;
       text-shadow: 0 6px 0 rgba(255,255,255,.9);
@@ -312,42 +290,6 @@
       text-align:center;
     }
 
-    /* Sticker elements */
-    .sticker{
-      position:absolute;
-      z-index:3;
-      border-radius: 999px;
-      border: 2px solid rgba(255,255,255,.95);
-      background: rgba(255,255,255,.75);
-      box-shadow: 0 16px 26px rgba(118,36,79,.12);
-      padding: 10px 12px;
-      font-family:"Fredoka", system-ui, sans-serif;
-      font-weight:700;
-      color: rgba(43,26,37,.8);
-      display:flex;
-      align-items:center;
-      gap:8px;
-      user-select:none;
-    }
-    .sticker.heart{
-      right: 18px;
-      top: 16px;
-      transform: rotate(10deg);
-    }
-    .sticker.spark{
-      left: 18px;
-      bottom: 16px;
-      transform: rotate(-8deg);
-    }
-    .emoji{
-      width: 18px; height: 18px;
-      display:inline-grid;
-      place-items:center;
-      border-radius: 8px;
-      background: linear-gradient(135deg, rgba(255,79,184,.22), rgba(255,183,232,.55));
-      border:1px solid rgba(255,255,255,.85);
-    }
-
     /* Decorative wave at bottom of hero card */
     .heroWave{
       position:absolute;
@@ -364,7 +306,6 @@
 
     /* ===== Sections ===== */
     section{ padding: 26px 0; }
-
     .sectionHead{
       display:flex;
       align-items:flex-end;
@@ -399,14 +340,14 @@
       overflow:hidden;
     }
 
-    /* About: simple, girly, readable */
+    /* About */
     .aboutGrid{
       padding: 18px;
       display:grid;
       grid-template-columns: .85fr 1.15fr;
       gap: 14px;
     }
-    .aboutCard{
+    .aboutCard, .aboutList{
       border-radius: var(--radiusLG);
       background: rgba(255,255,255,.82);
       border: 2px solid rgba(255,255,255,.95);
@@ -460,14 +401,6 @@
       font-weight:500;
       font-size: 14px;
     }
-
-    .aboutList{
-      border-radius: var(--radiusLG);
-      background: rgba(255,255,255,.82);
-      border: 2px solid rgba(255,255,255,.95);
-      box-shadow: 0 16px 26px rgba(118,36,79,.10);
-      padding: 16px;
-    }
     .aboutList h4{
       margin:0 0 10px;
       font-family:"Fredoka", system-ui, sans-serif;
@@ -487,7 +420,7 @@
       .aboutGrid{ grid-template-columns: 1fr; }
     }
 
-    /* Work: “cute cards” */
+    /* Work cards */
     .workGrid{
       padding: 18px;
       display:grid;
@@ -508,7 +441,6 @@
     .workCard:hover{ transform: translateY(-4px); filter: brightness(1.01); }
 
     .workMedia{
-      position:relative;
       overflow:hidden;
       background: linear-gradient(135deg, rgba(255,79,184,.18), rgba(255,183,232,.45));
     }
@@ -531,7 +463,7 @@
       color: rgba(43,26,37,.72);
       font-weight:600;
       font-size: 13px;
-      line-height: 1.45;
+      line-height:1.45;
     }
     .tags{
       display:flex;
@@ -557,7 +489,7 @@
       .workGrid{ grid-template-columns: 1fr; }
     }
 
-    /* Contact: super simple pills */
+    /* Contact pills */
     .contactRow{
       padding: 18px;
       display:flex;
@@ -612,7 +544,7 @@
       font-size: 12px;
     }
 
-    /* Modal (optional, still cute) */
+    /* Modal */
     dialog#modal{
       width:min(920px, calc(100% - 26px));
       border:none;
@@ -679,6 +611,10 @@
       .mBody{ grid-template-columns: 1fr; }
       .mImg{ height: 280px; }
     }
+
+    @media (prefers-reduced-motion: reduce){
+      *{ animation:none !important; transition:none !important; scroll-behavior:auto !important; }
+    }
   </style>
 </head>
 
@@ -693,7 +629,7 @@
           <div class="logoDot" aria-hidden="true"></div>
           <div class="brandText">
             <strong>Riley Huskey</strong>
-            <span>Branding • Design • PR</span>
+            <span>Advertising • Marketing • Digital Design • Branding</span>
           </div>
         </a>
 
@@ -710,28 +646,20 @@
     <!-- HERO -->
     <header id="top" class="hero">
       <div class="heroCard">
-        <div class="sticker heart"><span class="emoji">♡</span> pink energy</div>
-        <div class="sticker spark"><span class="emoji">✦</span> high-end + cute</div>
-
         <div class="heroGrid">
           <div>
-            <div class="kicker">
-              <span class="kDot" aria-hidden="true"></span>
-              <span>Pink-forward creative • Portfolio</span>
-            </div>
-
             <h1 class="heroTitle">
-              Ready to <span class="accent">hire</span> a brand girl?
+              Advertising + <span class="accent">design</span> that gets attention.
             </h1>
 
             <p class="heroSub">
-              I build brand systems, campaign visuals, and PR messaging that feel feminine, polished, and instantly recognizable.
-              Clean hierarchy. Cute details. Serious execution.
+              I create scroll-stopping visuals and clean brand systems for campaigns, social, and digital content.
+              My style is bold, feminine, and organized — designed to convert attention into action.
             </p>
 
             <div class="heroActions">
               <a class="btn primary" href="#work">View my work</a>
-              <a class="btn soft" href="#contact">Contact me</a>
+              <a class="btn soft" href="#contact">Contact</a>
               <a class="btn soft" href="https://www.linkedin.com/in/riley-huskey-651591295" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>
           </div>
@@ -741,11 +669,11 @@
             <div class="imgWrap">
               <img src="images/header-photo.jpg" alt="Hero portrait / brand visual">
             </div>
-            <div class="caption">“Designed to be remembered.”</div>
+            <div class="caption">Campaign-ready digital design + branding.</div>
           </div>
         </div>
 
-        <!-- Wavy bottom like your reference vibe -->
+        <!-- Wavy bottom -->
         <svg class="heroWave" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true">
           <path d="M0,80 C120,120 240,40 360,80 C480,120 600,40 720,80 C840,120 960,40 1080,80 C1200,120 1320,40 1440,80 L1440,160 L0,160 Z"
                 fill="rgba(255,183,232,.95)"></path>
@@ -759,7 +687,7 @@
     <section id="about">
       <div class="sectionHead">
         <h2>About</h2>
-        <p>Simple, readable, and cute. No clutter.</p>
+        <p>What I do, in plain English.</p>
       </div>
 
       <div class="panel">
@@ -767,30 +695,29 @@
           <div class="aboutCard">
             <div class="aboutInner">
               <div class="avatarRow">
-                <!-- Swap to your headshot -->
                 <div class="avatar">
                   <img src="riley-huskey.jpg" alt="Riley Huskey">
                 </div>
                 <div class="who">
                   <h3>Riley Huskey</h3>
-                  <span>Advertising & PR Student</span>
+                  <span>Advertising & Marketing • Digital Design</span>
                 </div>
               </div>
 
               <p class="aboutCopy">
-                I’m a creative communicator focused on brand storytelling, digital presence, and PR strategy.
-                I love building “full looks” for brands — the type, the palette, the voice, and the scroll-stopping visuals.
+                I design digital-first marketing pieces that look good and communicate fast — ads, social content, and brand visuals.
+                I like building consistent systems (fonts, colors, templates) so everything feels cohesive across platforms.
               </p>
             </div>
           </div>
 
           <div class="aboutList">
-            <h4>What I do best</h4>
+            <h4>Focus areas</h4>
             <ul>
-              <li>Brand identity + systems (logo, type, palette, templates)</li>
-              <li>Campaign visuals built for clarity + attention</li>
-              <li>PR-ready messaging that sounds human</li>
-              <li>Consistency across every channel</li>
+              <li>Advertising creatives (digital ads, campaign graphics)</li>
+              <li>Social content + template systems</li>
+              <li>Brand identity + visual direction</li>
+              <li>Marketing design for web + digital</li>
             </ul>
           </div>
         </div>
@@ -801,55 +728,52 @@
     <section id="work">
       <div class="sectionHead">
         <h2>Work</h2>
-        <p>Click a project for quick details.</p>
+        <p>Click a project for details.</p>
       </div>
 
       <div class="panel">
         <div class="workGrid">
-          <!-- Project 1 -->
           <article class="workCard"
             data-title="BenchRacers"
             data-img="project1.jpg"
-            data-desc="Brand concept + campaign identity for a Gen Z media launch. Built a cohesive pink-forward system for social + promo graphics."
+            data-desc="Campaign identity + digital design assets built for a Gen Z media launch. Focus: bold hierarchy, fast readability, and a cohesive look across formats."
           >
             <div class="workMedia"><img src="project1.jpg" alt="BenchRacers preview"></div>
             <div class="workBody">
               <h3>BenchRacers</h3>
-              <p>Brand concept + campaign identity for a Gen Z media launch.</p>
+              <p>Campaign identity + digital assets for launch.</p>
               <div class="tags">
-                <span class="tag">Branding</span><span class="tag">Campaign</span><span class="tag">Social</span>
+                <span class="tag">Advertising</span><span class="tag">Campaign</span><span class="tag">Digital</span>
               </div>
             </div>
           </article>
 
-          <!-- Project 2 -->
           <article class="workCard"
             data-title="Visual Suite"
             data-img="project2.jpg"
-            data-desc="Cohesive brand system: logo, palette, typography rules, and templates. Designed for speed + consistency."
+            data-desc="Branding + template system: palette, typography, layout rules, and reusable social formats to keep content consistent and quick to produce."
           >
             <div class="workMedia"><img src="project2.jpg" alt="Visual Suite preview"></div>
             <div class="workBody">
               <h3>Visual Suite</h3>
-              <p>Logo + palette + type + templates for consistency.</p>
+              <p>Brand system + templates for consistency.</p>
               <div class="tags">
-                <span class="tag">Identity</span><span class="tag">Templates</span><span class="tag">Design</span>
+                <span class="tag">Branding</span><span class="tag">Templates</span><span class="tag">Design</span>
               </div>
             </div>
           </article>
 
-          <!-- Project 3 -->
           <article class="workCard"
             data-title="“Me When” Design"
             data-img="project3.jpg"
-            data-desc="Art direction and social visuals for a humor-focused campaign. Punchline-first layout + consistent styling."
+            data-desc="Social-first design system for a humor campaign. Focus: strong headline hierarchy, consistent styling, and fast production across posts."
           >
             <div class="workMedia"><img src="project3.jpg" alt="Me When Design preview"></div>
             <div class="workBody">
               <h3>“Me When” Design</h3>
-              <p>Art direction + social visuals for a humor campaign.</p>
+              <p>Social-first visuals with clear hierarchy.</p>
               <div class="tags">
-                <span class="tag">Art Direction</span><span class="tag">Social</span>
+                <span class="tag">Social</span><span class="tag">Content</span>
               </div>
             </div>
           </article>
@@ -857,16 +781,16 @@
       </div>
     </section>
 
-    <!-- CONTACT (simple: only email + phone) -->
+    <!-- CONTACT -->
     <section id="contact">
       <div class="sectionHead">
         <h2>Contact</h2>
-        <p>One tap to email or call.</p>
+        <p>Tap to email or call.</p>
       </div>
 
       <div class="panel">
         <div class="contactRow">
-          <a class="contactPill" href="mailto:huskey.riley@yahoo.com" id="emailPill" aria-label="Email Riley">
+          <a class="contactPill" href="mailto:huskey.riley@yahoo.com" aria-label="Email Riley">
             <div>
               <small>Email</small>
               <span>huskey.riley@yahoo.com</span>
@@ -874,7 +798,7 @@
             <div class="copyHint" data-copy="huskey.riley@yahoo.com">Copy</div>
           </a>
 
-          <a class="contactPill" href="tel:+13145603141" id="phonePill" aria-label="Call Riley">
+          <a class="contactPill" href="tel:+13145603141" aria-label="Call Riley">
             <div>
               <small>Phone</small>
               <span>(314)-560-3141</span>
@@ -890,7 +814,7 @@
     </footer>
   </div>
 
-  <!-- Cute quick modal for work cards -->
+  <!-- Modal -->
   <dialog id="modal" aria-label="Project details">
     <div class="mHead">
       <h3 id="mTitle">Project</h3>
@@ -911,30 +835,20 @@
 
     // Sticky nav "active" highlight
     const navLinks = $$("[data-nav]");
-    const ids = navLinks.map(a => a.getAttribute("data-nav"));
-    const sections = ids.map(id => document.getElementById(id === "work" ? "work" : id)).filter(Boolean);
-
     function setActive(id){
       navLinks.forEach(a => a.classList.toggle("active", a.getAttribute("data-nav") === id));
     }
-
+    const sectionEls = ["about","work","contact"].map(id => document.getElementById(id)).filter(Boolean);
     const navIO = new IntersectionObserver((entries) => {
-      entries.forEach(en => {
-        if (en.isIntersecting) {
-          const id = en.target.id; // about / work / contact
-          setActive(id);
-        }
-      });
+      entries.forEach(en => { if (en.isIntersecting) setActive(en.target.id); });
     }, { threshold: 0.55 });
-
-    sections.forEach(s => navIO.observe(s));
+    sectionEls.forEach(s => navIO.observe(s));
 
     // Work modal
     const modal = $("#modal");
     const mTitle = $("#mTitle");
     const mImg = $("#mImg");
     const mDesc = $("#mDesc");
-
     $$(".workCard").forEach(card => {
       card.addEventListener("click", () => {
         mTitle.textContent = card.dataset.title || "Project";
@@ -948,21 +862,17 @@
       });
       card.tabIndex = 0;
     });
-
     $("#mClose").addEventListener("click", () => modal.close());
 
-    // Copy to clipboard (click “Copy” area or pill)
+    // Copy
     async function copyText(text, el){
       try{
         await navigator.clipboard.writeText(text);
         const old = el.textContent;
         el.textContent = "Copied!";
         setTimeout(() => el.textContent = old, 1100);
-      } catch(e){
-        // fallback: do nothing
-      }
+      } catch(e){}
     }
-
     $$(".copyHint").forEach(h => {
       h.addEventListener("click", (e) => {
         e.preventDefault();
