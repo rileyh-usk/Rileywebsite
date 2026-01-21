@@ -3,75 +3,106 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Riley Huskey | Home</title>
-  <link rel="stylesheet" href="assets/styles.css" />
+  <title>Riley Huskey | Portfolio</title>
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
 
 <body data-page="home">
-  <div class="sparkleLayer" aria-hidden="true"></div>
+  <!-- Ambient background -->
+  <div class="bg" aria-hidden="true"></div>
 
-  <div class="wrap page">
-    <!-- UNIVERSAL NAV -->
-    <div class="nav">
-      <div class="navInner">
-        <a class="brand" href="index.html" aria-label="Go to home">
-          <div class="logoDot" aria-hidden="true"></div>
-          <div class="brandText">
-            <strong>Riley Huskey</strong>
-            <span>Advertising • Marketing • Digital Design • Branding</span>
-          </div>
-        </a>
+  <!-- Top bar -->
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Home">
+      <span class="brandDot" aria-hidden="true"></span>
+      <span class="brandText">
+        <strong>Riley Huskey</strong>
+        <em>Advertising • Marketing • Digital Design • Branding</em>
+      </span>
+    </a>
 
-        <nav class="navLinks" aria-label="Primary">
-          <a class="chip" href="index.html" data-page="index">Home</a>
-          <a class="chip" href="work.html" data-page="work">Work</a>
-          <a class="chip" href="contact.html" data-page="contact">Contact</a>
-        </nav>
+    <nav class="toplinks" aria-label="Primary">
+      <a class="toplink" href="index.html" aria-current="page">Home</a>
+      <a class="toplink" href="work.html">Work</a>
+      <a class="toplink" href="contact.html">Contact</a>
+    </nav>
 
-        <!-- Removed "See work" CTA -->
-      </div>
-    </div>
+    <button class="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">
+      <span class="menuIcon" aria-hidden="true"></span>
+      <span class="menuText">Menu</span>
+    </button>
+  </header>
 
-    <!-- HERO -->
-    <header class="hero">
-      <div class="heroCard">
-        <div class="heroGrid">
-          <div>
-            <h1 class="heroTitle">
-              Advertising + <span class="accent accentSolid">digital design</span> that actually lands.
-            </h1>
+  <!-- Fullscreen menu -->
+  <aside class="menu" aria-hidden="true">
+    <div class="menuInner">
+      <button class="menuClose" type="button" aria-label="Close menu">Close</button>
 
-            <p class="heroSub">
-              I create digital-first marketing visuals—ads, social content, and branding—that communicate fast and look clean.
-              Strong hierarchy and consistent systems across platforms.
-            </p>
-
-            <!-- Removed buttons under description:
-                 - View my work
-                 - Contact
-                 - LinkedIn
-            -->
-          </div>
-
-          <div class="polaroid" aria-label="Hero image">
-            <div class="imgWrap">
-              <img src="images/header-photo.jpg" alt="Hero portrait / brand visual">
-            </div>
-            <div class="caption">Campaign-ready visuals + branding.</div>
+      <div class="menuCols">
+        <div class="menuLeft">
+          <div class="verticalWord" aria-hidden="true">
+            <span>C</span><span>r</span><span>e</span><span>a</span><span>t</span><span>i</span><span>v</span><span>e</span>
           </div>
         </div>
 
-        <svg class="heroWave" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0,80 C120,120 240,40 360,80 C480,120 600,40 720,80 C840,120 960,40 1080,80 C1200,120 1320,40 1440,80 L1440,160 L0,160 Z"
-                fill="rgba(255,183,232,.96)"></path>
-          <path d="M0,95 C120,135 240,55 360,95 C480,135 600,55 720,95 C840,135 960,55 1080,95 C1200,135 1320,55 1440,95 L1440,160 L0,160 Z"
-                fill="rgba(255,255,255,.72)"></path>
-        </svg>
+        <div class="menuRight">
+          <a class="menuLink" href="index.html">Home</a>
+          <a class="menuLink" href="work.html">Work</a>
+          <a class="menuLink" href="contact.html">Contact</a>
+
+          <div class="menuMeta">
+            <div class="pill">Available for internships + freelance</div>
+            <div class="fineprint">Clean, strategic creative that performs in real-world marketing.</div>
+          </div>
+        </div>
       </div>
-    </header>
+    </div>
+  </aside>
+
+  <main class="wrap">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="heroGrid">
+        <div class="heroCopy">
+          <h1 class="heroTitle">
+            Advertising + digital design<br />
+            that actually <span class="accent">lands</span>.
+          </h1>
+
+          <p class="heroSub">
+            I design digital-first marketing visuals—ads, social content, and branding—built for clarity,
+            consistency, and attention in fast-scroll environments.
+          </p>
+
+          <div class="badges">
+            <span class="badge">Campaign graphics</span>
+            <span class="badge">Social content systems</span>
+            <span class="badge">Brand identity</span>
+            <span class="badge">Web + digital design</span>
+          </div>
+        </div>
+
+        <div class="heroCard" aria-label="Featured visual">
+          <div class="heroCardInner">
+            <div class="heroPhoto">
+              <img src="images/header-photo.jpg" alt="Riley Huskey portfolio visual" />
+            </div>
+            <div class="heroCardFooter">
+              <div class="heroCardLabel">Featured</div>
+              <div class="heroCardText">Campaign-ready visuals + branding systems.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a class="scrollCue" href="#about" aria-label="Scroll to About">
+        <span>Scroll</span>
+        <i aria-hidden="true"></i>
+      </a>
+    </section>
 
     <!-- ABOUT -->
-    <section>
+    <section id="about" class="section">
       <div class="sectionHead">
         <h2>About</h2>
         <p>Quick overview.</p>
@@ -79,42 +110,89 @@
 
       <div class="panel">
         <div class="aboutGrid">
-          <div class="aboutCard">
-            <div class="aboutInner">
-              <div class="avatarRow">
-                <div class="avatar">
-                  <img src="images/riley-huskey.jpg" alt="Riley Huskey">
-                </div>
-                <div class="who">
-                  <h3>Riley Huskey</h3>
-                  <span>Advertising & Marketing • Digital Design</span>
-                </div>
-              </div>
-
-              <p class="aboutCopy">
-                I design digital marketing creatives that are clean, organized, and attention-grabbing.
-                I love building systems—fonts, colors, layout rules, templates—so brands stay consistent everywhere.
-              </p>
-            </div>
+          <div class="aboutLeft">
+            <h3 class="aboutName">Riley Huskey</h3>
+            <p class="aboutRole">Advertising & Marketing • Digital Design</p>
+            <p class="aboutText">
+              I build clean, organized design systems that make content easier to create and brands easier to recognize.
+              My work focuses on strong hierarchy, repeatable templates, and visuals that feel modern and intentional.
+            </p>
           </div>
 
-          <div class="aboutList">
-            <h4>Focus areas</h4>
-            <ul>
-              <li>Digital ads + campaign graphics</li>
-              <li>Social content + template systems</li>
-              <li>Brand identity + visual direction</li>
-              <li>Marketing design for web + digital</li>
-            </ul>
+          <div class="aboutRight">
+            <div class="miniStats">
+              <div class="miniStat">
+                <small>Strengths</small>
+                <strong>Hierarchy + systems</strong>
+              </div>
+              <div class="miniStat">
+                <small>Style</small>
+                <strong>Clean + high-impact</strong>
+              </div>
+              <div class="miniStat">
+                <small>Best work</small>
+                <strong>Digital + social</strong>
+              </div>
+            </div>
+
+            <div class="toolRow">
+              <span class="tool">Illustrator</span>
+              <span class="tool">Photoshop</span>
+              <span class="tool">Canva</span>
+              <span class="tool">Figma (basic)</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Removed Explore section entirely -->
+    <!-- FEATURED WORK PREVIEW -->
+    <section class="section">
+      <div class="sectionHead">
+        <h2>Featured Work</h2>
+        <p>Three projects. Click through for the details.</p>
+      </div>
 
-    <footer>© Riley Huskey</footer>
-  </div>
+      <div class="cards">
+        <a class="card" href="work.html#benchracers">
+          <div class="cardTop">
+            <span class="cardTag">Campaign</span>
+            <span class="cardYear">2025</span>
+          </div>
+          <h3>BenchRacers</h3>
+          <p>Launch identity + digital assets for a Gen-Z media concept.</p>
+          <span class="cardArrow" aria-hidden="true">→</span>
+        </a>
+
+        <a class="card" href="work.html#visual-suite">
+          <div class="cardTop">
+            <span class="cardTag">Brand system</span>
+            <span class="cardYear">2025</span>
+          </div>
+          <h3>Visual Suite</h3>
+          <p>Templates + layout rules designed for consistency at scale.</p>
+          <span class="cardArrow" aria-hidden="true">→</span>
+        </a>
+
+        <a class="card" href="work.html#me-when">
+          <div class="cardTop">
+            <span class="cardTag">Social</span>
+            <span class="cardYear">2025</span>
+          </div>
+          <h3>“Me When” Design</h3>
+          <p>Social-first visuals built for clarity in fast-scroll feeds.</p>
+          <span class="cardArrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footerInner">
+        <div>© <span id="year"></span> Riley Huskey</div>
+        <div class="footerMini">Pink-coded, performance-minded.</div>
+      </div>
+    </footer>
+  </main>
 
   <script src="assets/script.js"></script>
 </body>
