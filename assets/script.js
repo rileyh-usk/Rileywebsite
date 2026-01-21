@@ -1,58 +1,47 @@
-const $ = (s, r=document) => r.querySelector(s);
-const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+(() => {
+  const $ = (sel, root = document) => root.querySelector(sel);
+  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
-function setActiveNav(){
-  const page = document.body.dataset.page; // home | work | contact
-  const key = page === "home" ? "index" : page;
-  $$("[data-page]").forEach(a => a.classList.toggle("active", a.dataset.page === key));
-}
+  // Footer year
+  const year = $("#year");
+  if (year) year.textContent = String(new Date().getFullYear());
 
-function wireCopy(){
-  $$(".copyHint").forEach(h => {
-    h.addEventListener("click", async (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      try{
-        await navigator.clipboard.writeText(h.dataset.copy || "");
-        const old = h.textContent;
-        h.textContent = "Copied!";
-        setTimeout(() => h.textContent = old, 1100);
-      } catch(_) {}
-    });
-  });
-}
+  // Menu open/close
+  const menu = $(".menu");
+  const openBtn = $(".menuBtn");
+  const closeBtn = $(".menuClose");
 
-function wireWorkModal(){
-  const modal = $("#modal");
-  if (!modal) return;
+  const setMenu = (open) => {
+    if (!menu || !openBtn) return;
+    menu.classList.toggle("open", open);
+    menu.setAttribute("aria-hidden", open ? "false" : "true");
+    openBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    document.body.style.overflow = open ? "hidden" : "";
+  };
 
-  const mTitle = $("#mTitle");
-  const mImg = $("#mImg");
-  const mDesc = $("#mDesc");
-  const closeBtn = $("#mClose");
+  if (openBtn && menu) {
+    openBtn.addEventListener("click", () => setMenu(true));
+  }
+  if (closeBtn && menu) {
+    closeBtn.addEventListener("click", () => setMenu(false));
+  }
 
-  $$(".workCard").forEach(card => {
-    card.tabIndex = 0;
-
-    const open = () => {
-      mTitle.textContent = card.dataset.title || "Project";
-      mImg.src = card.dataset.img || "";
-      mImg.alt = (card.dataset.title || "Project") + " image";
-      mDesc.textContent = card.dataset.desc || "";
-      modal.showModal ? modal.showModal() : modal.setAttribute("open","");
-    };
-
-    card.addEventListener("click", open);
-    card.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }
-    });
+  // Close menu when clicking a link
+  $$(".menuLink").forEach((a) => {
+    a.addEventListener("click", () => setMenu(false));
   });
 
-  closeBtn?.addEventListener("click", () => modal.close());
-}
+  // Close menu on Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setMenu(false);
+  });
 
-document.addEventListener("DOMContentLoaded", () => {
-  setActiveNav();
-  wireCopy();
-  wireWorkModal();
-});
+  // Click outside menuInner closes menu
+  if (menu) {
+    menu.addEventListener("click", (e) => {
+      const inner = $(".menuInner");
+      if (!inner) return;
+      if (e.target === menu) setMenu(false);
+    });
+  }
+})();
