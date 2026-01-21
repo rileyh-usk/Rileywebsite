@@ -8,119 +8,230 @@
 </head>
 
 <body data-page="work">
-  <div class="sparkleLayer" aria-hidden="true"></div>
+  <div class="bg" aria-hidden="true"></div>
 
-  <div class="wrap page">
-    <!-- NAV -->
-    <div class="nav">
-      <div class="navInner">
-        <a class="brand" href="index.html">
-          <div class="logoDot"></div>
-          <div class="brandText">
-            <strong>Riley Huskey</strong>
-            <span>Advertising • Marketing • Digital Design • Branding</span>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Home">
+      <span class="brandDot" aria-hidden="true"></span>
+      <span class="brandText">
+        <strong>Riley Huskey</strong>
+        <em>Advertising • Marketing • Digital Design • Branding</em>
+      </span>
+    </a>
+
+    <nav class="toplinks" aria-label="Primary">
+      <a class="toplink" href="index.html">Home</a>
+      <a class="toplink" href="work.html" aria-current="page">Work</a>
+      <a class="toplink" href="contact.html">Contact</a>
+    </nav>
+
+    <button class="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">
+      <span class="menuIcon" aria-hidden="true"></span>
+      <span class="menuText">Menu</span>
+    </button>
+  </header>
+
+  <aside class="menu" aria-hidden="true">
+    <div class="menuInner">
+      <button class="menuClose" type="button" aria-label="Close menu">Close</button>
+      <div class="menuCols">
+        <div class="menuLeft">
+          <div class="verticalWord" aria-hidden="true">
+            <span>P</span><span>r</span><span>o</span><span>j</span><span>e</span><span>c</span><span>t</span><span>s</span>
           </div>
-        </a>
-
-        <nav class="navLinks">
-          <a class="chip" href="index.html">Home</a>
-          <a class="chip active" href="work.html">Work</a>
-          <a class="chip" href="contact.html">Contact</a>
-        </nav>
+        </div>
+        <div class="menuRight">
+          <a class="menuLink" href="index.html">Home</a>
+          <a class="menuLink" href="work.html">Work</a>
+          <a class="menuLink" href="contact.html">Contact</a>
+          <div class="menuMeta">
+            <div class="pill">Case studies, not just pretty pictures.</div>
+            <div class="fineprint">Role, process, deliverables, and what it proves.</div>
+          </div>
+        </div>
       </div>
     </div>
+  </aside>
 
-    <!-- HEADER -->
-    <header class="hero">
+  <main class="wrap">
+    <section class="section">
       <div class="sectionHead">
-        <h1>Work</h1>
-        <p>Selected projects showing my approach to advertising, branding, and digital design.</p>
+        <h1 class="pageTitle">Work</h1>
+        <p>Selected projects with clear scope + deliverables.</p>
       </div>
-    </header>
 
-    <!-- PROJECTS -->
-    <section>
       <div class="panel">
+        <div class="caseList">
 
-        <!-- PROJECT 1 -->
-        <div class="projectBlock">
-          <h3>BenchRacers</h3>
-          <p class="projectTagline">
-            Campaign identity + digital assets for a Gen-Z media launch.
-          </p>
+          <!-- Case 1 -->
+          <article id="benchracers" class="case">
+            <header class="caseHead">
+              <div>
+                <h2>BenchRacers</h2>
+                <p class="caseSub">Campaign identity + launch assets for a Gen-Z media concept.</p>
+              </div>
+              <div class="caseMeta">
+                <span class="chipLite">Advertising</span>
+                <span class="chipLite">Campaign graphics</span>
+                <span class="chipLite">Brand system</span>
+              </div>
+            </header>
 
-          <p class="projectDesc">
-            BenchRacers was a concept media brand targeting Gen-Z sports culture.
-            I developed the visual identity and launch assets to feel bold, fast,
-            and internet-native while remaining flexible across platforms.
-          </p>
+            <div class="caseGrid">
+              <div class="caseCol">
+                <h3>Goal</h3>
+                <p>Create a bold, internet-native look that’s flexible across social + digital placements.</p>
 
-          <ul class="projectList">
-            <li>Designed campaign graphics for social and digital rollout</li>
-            <li>Established typography, color system, and visual tone</li>
-            <li>Created scalable assets for future content and promotion</li>
-          </ul>
+                <h3>What I did</h3>
+                <ul>
+                  <li>Defined visual direction (type, color, layout rhythm)</li>
+                  <li>Designed a launch pack for social + promo graphics</li>
+                  <li>Built repeatable templates for future posts</li>
+                </ul>
 
-          <div class="projectMeta">
-            <span>Focus:</span> Advertising, Campaign Design<br />
-            <span>Tools:</span> Adobe Illustrator, Photoshop
-          </div>
+                <h3>Deliverables</h3>
+                <div class="deliverables">
+                  <span>Launch key visual</span>
+                  <span>IG post templates</span>
+                  <span>Story frames</span>
+                  <span>Promo tiles</span>
+                </div>
+              </div>
+
+              <div class="caseCol">
+                <h3>Tools</h3>
+                <p>Illustrator • Photoshop</p>
+
+                <h3>Design choices</h3>
+                <ul>
+                  <li>High-contrast hierarchy for fast readability</li>
+                  <li>Strong grid + spacing rules for consistency</li>
+                  <li>Reusable modules (headline, CTA, icon space)</li>
+                </ul>
+
+                <div class="caseNote">
+                  <strong>What it proves:</strong> I can create a campaign look that scales across content types.
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Case 2 -->
+          <article id="visual-suite" class="case">
+            <header class="caseHead">
+              <div>
+                <h2>Visual Suite</h2>
+                <p class="caseSub">A cohesive brand system + templates for consistency.</p>
+              </div>
+              <div class="caseMeta">
+                <span class="chipLite">Branding</span>
+                <span class="chipLite">Templates</span>
+                <span class="chipLite">Systems</span>
+              </div>
+            </header>
+
+            <div class="caseGrid">
+              <div class="caseCol">
+                <h3>Goal</h3>
+                <p>Make brand content easy to build quickly without losing quality or consistency.</p>
+
+                <h3>What I did</h3>
+                <ul>
+                  <li>Created layout rules (spacing, type scale, alignment)</li>
+                  <li>Designed a template kit for multiple post types</li>
+                  <li>Documented usage so the system is easy to follow</li>
+                </ul>
+
+                <h3>Deliverables</h3>
+                <div class="deliverables">
+                  <span>Template set</span>
+                  <span>Type scale</span>
+                  <span>Color + usage</span>
+                  <span>Layout rules</span>
+                </div>
+              </div>
+
+              <div class="caseCol">
+                <h3>Tools</h3>
+                <p>Illustrator • Canva</p>
+
+                <h3>Design choices</h3>
+                <ul>
+                  <li>Modular components (titles, captions, image blocks)</li>
+                  <li>Clear hierarchy for readability</li>
+                  <li>Consistent rhythm to keep the brand recognizable</li>
+                </ul>
+
+                <div class="caseNote">
+                  <strong>What it proves:</strong> I think in systems, not one-off graphics.
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Case 3 -->
+          <article id="me-when" class="case">
+            <header class="caseHead">
+              <div>
+                <h2>“Me When” Design</h2>
+                <p class="caseSub">Social-first visuals built for clarity + shareability.</p>
+              </div>
+              <div class="caseMeta">
+                <span class="chipLite">Social</span>
+                <span class="chipLite">Digital design</span>
+                <span class="chipLite">Visual hierarchy</span>
+              </div>
+            </header>
+
+            <div class="caseGrid">
+              <div class="caseCol">
+                <h3>Goal</h3>
+                <p>Create a series that reads instantly and feels consistent post-to-post.</p>
+
+                <h3>What I did</h3>
+                <ul>
+                  <li>Designed layouts optimized for mobile</li>
+                  <li>Balanced humor with clean hierarchy</li>
+                  <li>Built repeatable formats for rapid content creation</li>
+                </ul>
+
+                <h3>Deliverables</h3>
+                <div class="deliverables">
+                  <span>Post layouts</span>
+                  <span>Story variants</span>
+                  <span>Type + spacing rules</span>
+                </div>
+              </div>
+
+              <div class="caseCol">
+                <h3>Tools</h3>
+                <p>Photoshop</p>
+
+                <h3>Design choices</h3>
+                <ul>
+                  <li>Large type + high contrast for readability</li>
+                  <li>Consistent alignment and spacing</li>
+                  <li>Simple shapes so the message stays primary</li>
+                </ul>
+
+                <div class="caseNote">
+                  <strong>What it proves:</strong> I design for performance in real feeds.
+                </div>
+              </div>
+            </div>
+          </article>
+
         </div>
-
-        <!-- PROJECT 2 -->
-        <div class="projectBlock">
-          <h3>Visual Suite</h3>
-          <p class="projectTagline">
-            Brand system + templates designed for consistency.
-          </p>
-
-          <p class="projectDesc">
-            This project focused on building a cohesive visual system that could
-            be used repeatedly without losing brand integrity.
-            The goal was clarity, structure, and ease of use.
-          </p>
-
-          <ul class="projectList">
-            <li>Created brand templates for social and digital use</li>
-            <li>Defined layout rules, spacing, and hierarchy</li>
-            <li>Ensured consistency across all brand touchpoints</li>
-          </ul>
-
-          <div class="projectMeta">
-            <span>Focus:</span> Branding, Digital Design<br />
-            <span>Tools:</span> Adobe Illustrator, Canva
-          </div>
-        </div>
-
-        <!-- PROJECT 3 -->
-        <div class="projectBlock">
-          <h3>“Me When” Design</h3>
-          <p class="projectTagline">
-            Social-first visual content with clear hierarchy.
-          </p>
-
-          <p class="projectDesc">
-            A playful social design series built to perform well in fast-scroll environments.
-            Emphasis was placed on readability, humor, and visual clarity.
-          </p>
-
-          <ul class="projectList">
-            <li>Designed shareable social graphics</li>
-            <li>Balanced humor with strong visual hierarchy</li>
-            <li>Optimized layouts for mobile viewing</li>
-          </ul>
-
-          <div class="projectMeta">
-            <span>Focus:</span> Social Content, Digital Design<br />
-            <span>Tools:</span> Adobe Photoshop
-          </div>
-        </div>
-
       </div>
     </section>
 
-    <footer>© Riley Huskey</footer>
-  </div>
+    <footer class="footer">
+      <div class="footerInner">
+        <div>© <span id="year"></span> Riley Huskey</div>
+        <div class="footerMini">Designed to be seen. Built to be understood.</div>
+      </div>
+    </footer>
+  </main>
 
   <script src="assets/script.js"></script>
 </body>
