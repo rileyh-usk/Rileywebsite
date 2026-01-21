@@ -8,65 +8,88 @@
 </head>
 
 <body data-page="contact">
-  <div class="sparkleLayer" aria-hidden="true"></div>
+  <div class="bg" aria-hidden="true"></div>
 
-  <div class="wrap page">
-    <!-- UNIVERSAL NAV -->
-    <div class="nav">
-      <div class="navInner">
-        <a class="brand" href="index.html" aria-label="Go to home">
-          <div class="logoDot" aria-hidden="true"></div>
-          <div class="brandText">
-            <strong>Riley Huskey</strong>
-            <span>Advertising • Marketing • Digital Design • Branding</span>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Home">
+      <span class="brandDot" aria-hidden="true"></span>
+      <span class="brandText">
+        <strong>Riley Huskey</strong>
+        <em>Advertising • Marketing • Digital Design • Branding</em>
+      </span>
+    </a>
+
+    <nav class="toplinks" aria-label="Primary">
+      <a class="toplink" href="index.html">Home</a>
+      <a class="toplink" href="work.html">Work</a>
+      <a class="toplink" href="contact.html" aria-current="page">Contact</a>
+    </nav>
+
+    <button class="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">
+      <span class="menuIcon" aria-hidden="true"></span>
+      <span class="menuText">Menu</span>
+    </button>
+  </header>
+
+  <aside class="menu" aria-hidden="true">
+    <div class="menuInner">
+      <button class="menuClose" type="button" aria-label="Close menu">Close</button>
+      <div class="menuCols">
+        <div class="menuLeft">
+          <div class="verticalWord" aria-hidden="true">
+            <span>H</span><span>i</span>
           </div>
-        </a>
-
-        <nav class="navLinks" aria-label="Primary">
-          <a class="chip" href="index.html" data-page="index">Home</a>
-          <a class="chip" href="work.html" data-page="work">Work</a>
-          <a class="chip" href="contact.html" data-page="contact">Contact</a>
-        </nav>
+        </div>
+        <div class="menuRight">
+          <a class="menuLink" href="index.html">Home</a>
+          <a class="menuLink" href="work.html">Work</a>
+          <a class="menuLink" href="contact.html">Contact</a>
+          <div class="menuMeta">
+            <div class="pill">Let’s work together.</div>
+            <div class="fineprint">Email is best for internships + collaborations.</div>
+          </div>
+        </div>
       </div>
     </div>
+  </aside>
 
-    <header class="hero">
+  <main class="wrap">
+    <section class="section">
       <div class="sectionHead">
-        <h1>Contact</h1>
-        <p>Email, call, or connect on LinkedIn.</p>
+        <h1 class="pageTitle">Contact</h1>
+        <p>Simple + direct.</p>
       </div>
 
       <div class="panel">
-        <div class="contactRow">
-          <a class="contactPill" href="mailto:huskey.riley@yahoo.com" aria-label="Email Riley">
-            <div>
-              <small>Email</small>
-              <span>huskey.riley@yahoo.com</span>
-            </div>
-            <span class="copyHint" data-copy="huskey.riley@yahoo.com">Copy</span>
+        <div class="contactGrid">
+          <a class="contactPill" href="mailto:huskey.riley@yahoo.com">
+            <small>Email</small>
+            <strong>huskey.riley@yahoo.com</strong>
+            <span class="hint">Tap to email</span>
           </a>
 
-          <a class="contactPill" href="tel:+13145603141" aria-label="Call Riley">
-            <div>
-              <small>Phone</small>
-              <span>(314)-560-3141</span>
-            </div>
-            <span class="copyHint" data-copy="(314)-560-3141">Copy</span>
+          <a class="contactPill" href="tel:+13145603141">
+            <small>Phone</small>
+            <strong>(314)-560-3141</strong>
+            <span class="hint">Tap to call</span>
           </a>
 
-          <a class="contactPill" href="https://www.linkedin.com/in/riley-huskey-651591295" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <div>
-              <small>LinkedIn</small>
-              <span>riley-huskey-651591295</span>
-            </div>
-            <span class="copyHint" data-copy="https://www.linkedin.com/in/riley-huskey-651591295">Copy</span>
+          <a class="contactPill" href="https://www.linkedin.com/in/riley-huskey-651591295" target="_blank" rel="noopener noreferrer">
+            <small>LinkedIn</small>
+            <strong>Riley Huskey</strong>
+            <span class="hint">Open profile</span>
           </a>
         </div>
       </div>
-    </header>
+    </section>
 
-    <footer>© Riley Huskey</footer>
-  </div>
+    <footer class="footer">
+      <div class="footerInner">
+        <div>© <span id="year"></span> Riley Huskey</div>
+        <div class="footerMini">St. Louis • Available</div>
+      </div>
+    </footer>
+  </main>
 
   <script src="assets/script.js"></script>
 </body>
