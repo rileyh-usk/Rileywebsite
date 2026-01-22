@@ -2,11 +2,15 @@
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
-  // Footer year
+  /* =========================
+     FOOTER YEAR
+     ========================= */
   const year = $("#year");
   if (year) year.textContent = String(new Date().getFullYear());
 
-  // Menu open/close
+  /* =========================
+     FULLSCREEN MENU
+     ========================= */
   const menu = $(".menu");
   const openBtn = $(".menuBtn");
   const closeBtn = $(".menuClose");
@@ -26,22 +30,45 @@
     closeBtn.addEventListener("click", () => setMenu(false));
   }
 
-  // Close menu when clicking a link
   $$(".menuLink").forEach((a) => {
     a.addEventListener("click", () => setMenu(false));
   });
 
-  // Close menu on Escape
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") setMenu(false);
   });
 
-  // Click outside menuInner closes menu
   if (menu) {
     menu.addEventListener("click", (e) => {
       const inner = $(".menuInner");
       if (!inner) return;
       if (e.target === menu) setMenu(false);
     });
+  }
+
+  /* =========================
+     MOUSE LIGHT FOLLOW
+     ========================= */
+  const light = document.getElementById("mouseLight");
+
+  if (light) {
+    const moveLight = (e) => {
+      const x = (e.clientX / window.innerWidth) * 100;
+      const y = (e.clientY / window.innerHeight) * 100;
+
+      document.documentElement.style.setProperty("--mx", `${x}%`);
+      document.documentElement.style.setProperty("--my", `${y}%`);
+    };
+
+    window.addEventListener("mousemove", moveLight, { passive: true });
+
+    // Hide effect on touch devices (prevents weird behavior on phones)
+    window.addEventListener(
+      "touchstart",
+      () => {
+        light.style.display = "none";
+      },
+      { once: true, passive: true }
+    );
   }
 })();
