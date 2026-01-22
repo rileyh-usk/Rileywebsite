@@ -634,3 +634,20 @@ img{ max-width:100%; display:block; }
   flex-wrap:wrap;
 }
 .footerMini{ opacity:.9; }
+/* Mouse-follow light */
+#mouseLight{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;            /* keep it above background */
+  opacity: .75;
+  background: radial-gradient(
+    420px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 79, 184, 0.22),
+    rgba(255, 255, 255, 0.10) 35%,
+    rgba(255, 255, 255, 0.0) 70%
+  );
+}
+
+/* Ensure your content stays above the light */
+.topbar, .wrap, .menu { position: relative; z-index: 3; }
